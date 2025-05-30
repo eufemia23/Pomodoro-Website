@@ -11,20 +11,41 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutImport } from './routes/about'
-import { Route as IndexImport } from './routes/index'
+import { Route as TodoImport } from './routes/todo'
+import { Route as StatisticsImport } from './routes/statistics'
+import { Route as SettingsImport } from './routes/settings'
+import { Route as ProfileImport } from './routes/profile'
+import { Route as CalendarImport } from './routes/calendar'
 
 // Create/Update Routes
 
-const AboutRoute = AboutImport.update({
-  id: '/about',
-  path: '/about',
+const TodoRoute = TodoImport.update({
+  id: '/todo',
+  path: '/todo',
   getParentRoute: () => rootRoute,
 } as any)
 
-const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+const StatisticsRoute = StatisticsImport.update({
+  id: '/statistics',
+  path: '/statistics',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SettingsRoute = SettingsImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProfileRoute = ProfileImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CalendarRoute = CalendarImport.update({
+  id: '/calendar',
+  path: '/calendar',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -32,18 +53,39 @@ const IndexRoute = IndexImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+    '/calendar': {
+      id: '/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof CalendarImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileImport
+      parentRoute: typeof rootRoute
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsImport
+      parentRoute: typeof rootRoute
+    }
+    '/statistics': {
+      id: '/statistics'
+      path: '/statistics'
+      fullPath: '/statistics'
+      preLoaderRoute: typeof StatisticsImport
+      parentRoute: typeof rootRoute
+    }
+    '/todo': {
+      id: '/todo'
+      path: '/todo'
+      fullPath: '/todo'
+      preLoaderRoute: typeof TodoImport
       parentRoute: typeof rootRoute
     }
   }
@@ -52,38 +94,59 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/calendar': typeof CalendarRoute
+  '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
+  '/statistics': typeof StatisticsRoute
+  '/todo': typeof TodoRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/calendar': typeof CalendarRoute
+  '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
+  '/statistics': typeof StatisticsRoute
+  '/todo': typeof TodoRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/calendar': typeof CalendarRoute
+  '/profile': typeof ProfileRoute
+  '/settings': typeof SettingsRoute
+  '/statistics': typeof StatisticsRoute
+  '/todo': typeof TodoRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about'
+  fullPaths: '/calendar' | '/profile' | '/settings' | '/statistics' | '/todo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about'
-  id: '__root__' | '/' | '/about'
+  to: '/calendar' | '/profile' | '/settings' | '/statistics' | '/todo'
+  id:
+    | '__root__'
+    | '/calendar'
+    | '/profile'
+    | '/settings'
+    | '/statistics'
+    | '/todo'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  CalendarRoute: typeof CalendarRoute
+  ProfileRoute: typeof ProfileRoute
+  SettingsRoute: typeof SettingsRoute
+  StatisticsRoute: typeof StatisticsRoute
+  TodoRoute: typeof TodoRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  CalendarRoute: CalendarRoute,
+  ProfileRoute: ProfileRoute,
+  SettingsRoute: SettingsRoute,
+  StatisticsRoute: StatisticsRoute,
+  TodoRoute: TodoRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,15 +159,27 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/about"
+        "/calendar",
+        "/profile",
+        "/settings",
+        "/statistics",
+        "/todo"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/calendar": {
+      "filePath": "calendar.tsx"
     },
-    "/about": {
-      "filePath": "about.tsx"
+    "/profile": {
+      "filePath": "profile.tsx"
+    },
+    "/settings": {
+      "filePath": "settings.tsx"
+    },
+    "/statistics": {
+      "filePath": "statistics.tsx"
+    },
+    "/todo": {
+      "filePath": "todo.tsx"
     }
   }
 }

@@ -1,1 +1,24 @@
-@import "tailwindcss"
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Gochi+Hand&family=Patrick+Hand&family=Sacramento&display=swap');
+@import "tailwindcss";
+
+body {
+  background-color: rgb(60, 43, 37);
+
+
+}
+
+@theme {
+  --color-primary-brown: rgb(60, 43, 37);
+  --color-primary-pink: rgb(244, 143, 172);
+  --color-primary-white: rgb(245, 223, 195);
+  --color-light-brown: rgb(139, 81, 60);
+  --color-light-pink: rgb(255, 178, 200);
+  --color-dark-white: rgb(236, 200, 153);
+
+  --font-roboto: "Roboto", sans-serif; 
+  --font-main: "Patrick Hand", cursive;
+  --font-cursive: "Gochi Hand", cursive;
+  --font-bubbly: "DynaPuff", system-ui;
+  --font-super-cursive:  "Sacramento", cursive;
+}
