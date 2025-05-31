@@ -61,23 +61,23 @@ function Timer() {
 
 
   return (
-    <div className="App" class="bg-primary-white w-100 ml-10 pb-7 ">
+    <div className="bg-primary-white w-100 ml-10 pb-7 rounded-md">
       
-      <div class="flex items-center justify-center pt-10 pb-1 text-[20px]">
+      <div className="flex items-center justify-center pt-10 pb-1 text-[20px]">
 
-        <button class="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-37">POMODORO</button>
-        <button class="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-37">BREAK</button>
+        <button className="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-37">POMODORO</button>
+        <button className="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-37">BREAK</button>
 
       </div>
       
 
-      <h1 class="text-[110px] font-bubbly text-primary-pink flex items-center justify-center font-semibold">{time}</h1>
+      <h1 className="text-[110px] font-bubbly text-primary-pink flex items-center justify-center font-semibold">{time}</h1>
 
-      <div class="flex items-center justify-center ">
+      <div className="flex items-center justify-center ">
         
-        <button onClick={() => setIsRunning(true)}  class="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-20">Start</button>
-        <button onClick={() => setIsRunning(false)}  class="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-20">Pause</button>
-        <button onClick={() => resetTimer()}  class="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-20">Reset</button>
+        <button onClick={() => setIsRunning(true)}  className="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-20">Start</button>
+        <button onClick={() => setIsRunning(false)}  className="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-20">Pause</button>
+        <button onClick={() => resetTimer()}  className="border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer hover:bg-light-pink active:bg-primary-pink mx-3 w-20">Reset</button>
       </div>
       
 
@@ -86,16 +86,16 @@ function Timer() {
       <button onClick={() => increment()}>+</button>
 
 
-      <div class="bg-primary-pink mx-9 py-10 mt-10">
+      <div className="bg-primary-pink mx-9 py-10 mt-10 rounded-md">
         
-        <div class="flex items-center justify-center">
-          <div class="font-bubbly text-2xl text-light-brown  mb-4">SESSION #</div>
-          <div class="font-bubbly text-2xl   mb-4 text-light-brown hover:text-primary-white">{session}</div>
+        <div className="flex items-center justify-center">
+          <div className="font-bubbly text-2xl text-light-brown  mb-4">SESSION #</div>
+          <div className="font-bubbly text-2xl   mb-4 text-light-brown hover:text-primary-white">{session}</div>
         </div>
 
-        <div class="font-bubbly text-[15px] text-light-brown flex items-center justify-center">
-          <button onClick={() => sessionDecrement()} class="mx-4 hover:cursor-pointer hover:text-primary-white active:text-dark-white">- Remove Session</button>
-          <button onClick={() => sessionIncrement()} class="mx-4 hover:cursor-pointer hover:text-primary-white active:text-dark-white">+ Add Session</button>
+        <div className="font-bubbly text-[15px] text-light-brown flex items-center justify-center">
+          <button onClick={() => sessionDecrement()} className="mx-4 hover:cursor-pointer hover:text-primary-white active:text-dark-white">- Remove Session</button>
+          <button onClick={() => sessionIncrement()} className="mx-4 hover:cursor-pointer hover:text-primary-white active:text-dark-white">+ Add Session</button>
         </div>
         
       </div>
