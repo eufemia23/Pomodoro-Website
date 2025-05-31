@@ -1,54 +1,11 @@
-# React + TypeScript + Vite
+# Pomodoro Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is my first personal project. I finished learning React concepts and wanted to practice them by creating a Pomodoro Timer Website.
 
-Currently, two official plugins are available:
+## Functionality ideas at start
+The website is made up of a pomodoro timer component that can be stopped or reset. The timer has two modes: pomodoro and break. The website starts of with the pomodoro mode on, and automatically switches to break when the pomodoro timer finishes. Then it switches to pomodoro again, and so on, until the amount of sessions has finished. You can add or remove the amount of sessions.
+The second part of the website is made up of a todo list, calendar, statistics, profile, and settings tabs. In the todo list, you can add your current todos, and mark them as done. The finished tasks are shown on the side. The calendar tab includes a calendar of the current month, and upon clicking on a specific day, displays a schedule, todos, and goals for that day. In a final version of the projects, the todos of the day would be synced with the todo tab. The statistics tab would display monthly and yearly statistics of how many hours the user has focused for. The profile tab would allow the user to log in, see their profile information, set their avatar, and possibly link their statistics to notion or other productivity apps. It's unclear for me so far how to do it, so for now I won't add much there. The settings tab would include options to set the pomodoro timer and break timer to a custom amount of minutes, and possibly some other options like theme colors, alarm tone, etc.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
