@@ -4,7 +4,7 @@
 
 body {
   background-color: rgb(60, 43, 37);
-
+  
 
 }
 
@@ -15,6 +15,9 @@ body {
   --color-light-brown: rgb(139, 81, 60);
   --color-light-pink: rgb(255, 178, 200);
   --color-dark-white: rgb(236, 200, 153);
+  --color-light-green: rgb(205, 233, 164);
+  --color-dark-green: rgb(182, 224, 121);
+  --color-text-green: rgb(92, 170, 70);
 
   --font-roboto: "Roboto", sans-serif; 
   --font-main: "Patrick Hand", cursive;
