@@ -3,10 +3,26 @@
 @import "tailwindcss";
 
 body {
-  background-color: rgb(60, 43, 37);
-  
-
+  background-color: rgb(102, 92, 88);
+  background-image: url("img/bglight.PNG");
+  background-size: 500px;
+  background-blend-mode:overlay;
 }
+
+.topdiv {
+  background-image: url("img/wooddecoration.PNG");
+  background-size: 250px;
+  height: 50px;
+  margin-top: 5px;
+}
+
+.topdivbottom {
+  background-image: url("img/topdecoration2.PNG");
+  background-size: 130px;
+  height: 60px;
+}
+
+
 
 @theme {
   --color-primary-brown: rgb(60, 43, 37);
@@ -18,10 +34,21 @@ body {
   --color-light-green: rgb(205, 233, 164);
   --color-dark-green: rgb(182, 224, 121);
   --color-text-green: rgb(92, 170, 70);
+  --color-accent-white: rgb(185, 147, 123);
+  --color-accent-green: rgb(195, 205, 139);
+  --color-accent-dark-green: rgb(140, 163, 86);
+  --color-light-white: rgb(254, 236, 213);
+
+  --color-wood-primary: rgb(132, 88, 68);
+  --color-wood-border: rgb(65, 44, 31);
+  --color-wood-shadow: rgb(108, 78, 61);
+  --color-wood-light: rgb(147, 106, 90);
 
   --font-roboto: "Roboto", sans-serif; 
   --font-main: "Patrick Hand", cursive;
   --font-cursive: "Gochi Hand", cursive;
   --font-bubbly: "DynaPuff", system-ui;
   --font-super-cursive:  "Sacramento", cursive;
+
+  --shadow-3xl: 0 35px 35px rgba(0, 0, 0, 0.25); 
 }
