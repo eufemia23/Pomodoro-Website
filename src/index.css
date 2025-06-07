@@ -20,6 +20,7 @@ body {
   background-image: url("img/topdecoration2.PNG");
   background-size: 130px;
   height: 60px;
+  color: rgb(203, 146, 108);
 }
 
 
@@ -38,11 +39,15 @@ body {
   --color-accent-green: rgb(195, 205, 139);
   --color-accent-dark-green: rgb(140, 163, 86);
   --color-light-white: rgb(254, 236, 213);
+  --color-darker-white: rgb(208, 155, 119);
+
+  
 
   --color-wood-primary: rgb(132, 88, 68);
   --color-wood-border: rgb(65, 44, 31);
   --color-wood-shadow: rgb(108, 78, 61);
   --color-wood-light: rgb(147, 106, 90);
+  --color-wood-warm: rgb(177, 118, 90);
 
   --font-roboto: "Roboto", sans-serif; 
   --font-main: "Patrick Hand", cursive;

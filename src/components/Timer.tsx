@@ -101,12 +101,12 @@ function Timer() {
 
 
   return (
-    <div className="bg-primary-white w-100 ml-[32px] rounded-md h-130">
+    <div className="bg-[url(img/page.PNG)] bg-contain h-132 w-100 ml-[32px] rounded-md">
       
-      <div className="flex items-center justify-center pt-10 pb-1 text-[20px] ">
+      <div className="flex items-center justify-center pt-17 pb-1 text-[20px]">
 
-        <button className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-37 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'pomodoro' ? 'bg-light-pink border-primary-pink' : 'border-light-brown hover:bg-light-pink'}`} onClick={() => handlePomodoroClick()}>POMODORO</button>
-        <button className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-37 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'bg-accent-green border-accent-dark-green ' : 'hover:bg-accent-green border-light-brown'}`} onClick={() => handleBreakClick()}>BREAK</button>
+        <button className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-2 w-37 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'pomodoro' ? 'bg-light-pink border-primary-pink' : 'border-light-brown hover:bg-light-pink active:bg-light-pink active:border-primary-pink'}`} onClick={() => handlePomodoroClick()}>POMODORO</button>
+        <button className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-2 w-37 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'bg-accent-green border-accent-dark-green ' : 'hover:bg-accent-green border-light-brown active:bg-accent-green active:border-accent-dark-green'}`} onClick={() => handleBreakClick()}>BREAK</button>
 
       </div>
       
@@ -115,32 +115,45 @@ function Timer() {
 
       <div className="flex items-center justify-center ">
         
-        <button onClick={() => setIsRunning(true)} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green' : 'hover:bg-light-pink active:border-primary-pink'}`}>Start</button>
-        <button onClick={() => setIsRunning(false)} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green' : 'hover:bg-light-pink active:border-primary-pink'}`}>Pause</button>
-        <button onClick={() => resetTimer()} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green' : 'hover:bg-light-pink active:border-primary-pink'}`}>Reset</button>
+        <button onClick={() => setIsRunning(true)} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Start</button>
+        <button onClick={() => setIsRunning(false)} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Pause</button>
+        <button onClick={() => resetTimer()} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Reset</button>
       </div>
       
 
 
-      <button onClick={() => decrement()}>-</button>
+      <button className='ml-47' onClick={() => decrement()}>-</button>
       <button onClick={() => increment()}>+</button>
 
 
-      <div className="bg-primary-pink mx-9 py-10 mt-10 rounded-md">
-        
-        <div className="flex items-center justify-center">
-          <div className="font-bubbly text-2xl text-light-brown  mb-4">SESSION #</div>
-          <div className="font-bubbly text-2xl   mb-4 text-light-brown hover:text-primary-white duration-100 ease-linear">{session}</div>
-        </div>
+      <div className="shadow-[0px_5px_5px_rgba(132,88,68,0.5)] w-78 flex justify-center mx-auto h-37 bg-darker-white border-4 border-wood-warm rounded-[20px]">
+          <div className="h-[139px] border-4 border-darker-white rounded-[17px] bg-wood-warm  ">
+            <div className="inset-shadow-[0px_7px_15px_rgba(254,236,213,0.2)] m-[5px] border-accent-white border-3 h-[121px] rounded-[10px] border-dashed text-center font-cursive font-bold text-dark-white text-[40px] pt-5 text-shadow-[0px_3px_5px_rgba(0,0,0,0.4)] shadow-[0px_5px_10px_rgba(0,0,0,0.3)]">
 
-        <div className="font-bubbly text-[15px] text-light-brown flex items-center justify-center">
-          <button onClick={() => sessionDecrement()} className="mx-4 hover:cursor-pointer hover:text-primary-white active:text-dark-white duration-100 ease-linear">- Remove Session</button>
-          <button onClick={() => sessionIncrement()} className="mx-4 hover:cursor-pointer hover:text-primary-white active:text-dark-white duration-100 ease-linear">+ Add Session</button>
+
+
+          <div className="flex items-center justify-center">
+            <div className="font-bubbly text-2xl text-dark-white  mb-4">SESSION #</div>
+            <div className="font-bubbly text-2xl   mb-4 text-dark-white hover:text-primary-white duration-100 ease-linear">{session}</div>
+          </div>
+
+          <div className="font-bubbly text-[16px] text-dark-white flex items-center justify-center w-70 h-6">
+            <button onClick={() => sessionDecrement()} className="mx-2 hover:cursor-pointer hover:text-primary-white active:text-dark-white duration-100 ease-linear text-shadow-[0px_3px_5px_rgba(0,0,0,0.4)] pt-0 active:text-shadow-none active:pt-0.5">Remove Session</button>
+            <button onClick={() => sessionIncrement()} className="mx-3 hover:cursor-pointer hover:text-primary-white active:text-dark-white duration-100 ease-linear text-shadow-[0px_3px_5px_rgba(0,0,0,0.4)] pt-0 active:text-shadow-none active:pt-0.5">Add Session</button>
+          </div>
+
+
+
+
+            </div>
+          </div>
         </div>
+        
+        
         
       </div>
       
-    </div>
+
   );
 }
 
