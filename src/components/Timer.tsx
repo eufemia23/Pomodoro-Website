@@ -24,11 +24,11 @@ function Timer() {
   let time = new Date(timer * 1000).toISOString().substring(14, 19)
 
   function sessionIncrement() {
-    setSession(prevSession => session + 1)
+    setSession(() => session + 1)
   }
   function sessionDecrement() {
     if (session > 0) {
-      setSession(prevSession => prevSession > 0 && prevSession - 1)
+      setSession(() => session - 1)
     }
   }
 
@@ -51,23 +51,14 @@ function Timer() {
     setResetTime(newTime)
   }
 
-  function automaticChange(interval: number) {
-    clearInterval(interval)
-    if (timerMode === 'pomodoro') {
-      setTimerMode('break')
-      setIsRunning(true);
-    } else if (timerMode === 'break') {
-      setTimerMode('pomodoro')
-      setIsRunning(true);
-    }
-  }
+  
 
 
 
   useEffect(() => {
     if (isRunning) {
       const interval = setInterval(() => {
-        setTimer(prevTimer => prevTimer > 0 && prevTimer - 1)
+        setTimer(prevTimer => prevTimer - 1)
       }, 1000);
       if (timer === 0) {
 
