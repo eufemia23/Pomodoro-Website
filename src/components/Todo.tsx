@@ -42,14 +42,14 @@ const Todo = () => {
 
   return (
     <>
-      <h2 className="text-primary-pink text-3xl font-cursive absolute left-232 w-100 top-34">Todo List</h2>
-      <div className="flex bg-[url(img/diary.PNG)] w-260 bg-contain h-130 mr-[30px] font-bubbly text-[14px]">
-        <div className="w-130 pl-11 py-10">
+      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-38">Todo List</h2>
+      
+        <div className="w-130 -ml-140 my-10 text-light-brown">
           <div className="">
             <h2 className="mx-auto w-max text-2xl font-bold mb-3">Add Todo</h2>
 
             <div className="w-max mx-auto">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="">
                 <input
                   value={inputValue}
                   onChange={handleChange}
@@ -59,7 +59,7 @@ const Todo = () => {
                 />
                 <button
                   type="submit"
-                  className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] bg-primary-white border-0 hover:cursor-pointer hover:bg-light-white active:shadow-none active:top-[265px] absolute left-227 top-66 rounded-sm duration-100 ease-linear inset-shadow-sm inset-shadow-white"
+                  className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] bg-primary-white border-0 hover:cursor-pointer hover:bg-light-white active:shadow-none active:top-[265px] rounded-sm duration-100 ease-linear inset-shadow-sm inset-shadow-white -ml-10 align-middle"
                 >
                   <HiArrowTurnDownLeft className="size-7 h-5 w-8" />
                 </button>
@@ -67,7 +67,7 @@ const Todo = () => {
             </div>
 
             {todos.map((todo, index) => (
-              <div key={index} className="ml-10 mt-4">
+              <div key={index} className="ml-16 mt-4">
                 <div className="flex w-92">
                   <button
                     className="border-2 rounded-md mr-3 text-primary-white border-light-brown hover:text-light-brown hover:cursor-pointer duration-100 ease-linear pl-[1.5px] pr-[1px] h-5 active:bg-accent-green active:text-light-brown"
@@ -93,7 +93,7 @@ const Todo = () => {
 
         <div className="w-125 px-8 py-10">
           <div>
-            <h2 className="mx-auto w-max text-2xl font-bold mb-3">
+            <h2 className="mx-auto w-max text-2xl font-bold mb-3 text-light-brown">
               Done Todos
             </h2>
           </div>
@@ -101,7 +101,7 @@ const Todo = () => {
           <div>
             {doneTodos.map((doneTodo: any, index: number) => {
               return (
-                <div className="ml-4 mt-4" key={index}>
+                <div className="ml-0 mt-4" key={index}>
                   <div className="flex w-92">
                     <button
                       onClick={() => handleUndo(doneTodo, index)}
@@ -127,7 +127,7 @@ const Todo = () => {
             })}
           </div>
         </div>
-      </div>
+   
     </>
   );
 };

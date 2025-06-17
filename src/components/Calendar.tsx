@@ -21,9 +21,9 @@ console.log(chosenDay)
 
   return (
       <>
-      <h2 className="text-primary-pink text-3xl font-cursive absolute left-231 w-100 top-34">Calendar</h2>
-      <div className="flex bg-[url(img/diary.PNG)] w-260 bg-contain h-130 mr-[30px] font-bubbly text-[14px]">
-        <div className="w-125 px-1 pt-10 pl-16 font-bubbly">
+      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-36.5">Calendar</h2>
+      
+        <div className="w-125 px-1 mt-10 pl-16 font-bubbly -ml-80">
 
 
 
@@ -434,7 +434,7 @@ console.log(chosenDay)
 
         </div>
 
-      </div>
+     \
       </>
   )
 }

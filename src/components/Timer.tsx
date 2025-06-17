@@ -1,14 +1,25 @@
 
-import { useState, useEffect } from 'react'
 
+import { useState, useEffect } from 'react'
+import { useWithSound } from './useWithSound';
+import alarmDone from '../assets/alarmdone.wav';
+import alarmStart from '../assets/alarmstart.mp3'
+import SessionsDoneModal from './SessionsDoneModal';
 
 
 
 function Timer() {
+
+  const { playDoneSound } = useWithSound(alarmDone);
+  const { playStartSound } = useWithSound(alarmStart);
+  
   const [session, setSession] = useState(5)
   const [timer, setTimer] = useState(2)
   const [isRunning, setIsRunning] = useState(false)
   const [resetTime, setResetTime] = useState(900)
+
+
+  const [showDoneModal, setShowDoneModal] = useState(false)
 
   let time = new Date(timer * 1000).toISOString().substring(14, 19)
 
@@ -17,7 +28,6 @@ function Timer() {
   }
   function sessionDecrement() {
     if (session > 0) {
-      setIsRunning(false)
       setSession(prevSession => prevSession > 0 && prevSession - 1)
     }
   }
@@ -52,22 +62,35 @@ function Timer() {
     }
   }
 
+
+
   useEffect(() => {
     if (isRunning) {
       const interval = setInterval(() => {
         setTimer(prevTimer => prevTimer > 0 && prevTimer - 1)
       }, 1000);
       if (timer === 0) {
-        sessionDecrement()
+
         setIsRunning(false)
+
         if (timerMode === 'pomodoro') {
-          setTimerMode('break')
-          resetTimer()
-          setIsRunning(true);
+          playDoneSound();
+          sessionDecrement();
+          if (session <= 1) {
+            setIsRunning(false);
+            setShowDoneModal(true);
+          } else {
+            setTimerMode('break')
+            resetTimer()
+            setIsRunning(true);
+          }
+          
         } else if (timerMode === 'break') {
+          playStartSound();
           setTimerMode('pomodoro')
           resetTimer()
           setIsRunning(true);
+          
         }
       }
       
@@ -97,10 +120,19 @@ function Timer() {
     setResetTime(300)
   }
 
-  console.log(timerMode)
+  const addExtraSession = () => {
+    setShowDoneModal(false)
+    setSession(1)
+    playStartSound();
+    setTimerMode('pomodoro')
+    resetTimer()
+    setIsRunning(true);
+  }
 
-
-  return (
+  
+  return (<>
+    
+      
     <div className="bg-[url(img/page.PNG)] bg-contain h-132 w-100 ml-[32px] rounded-md">
       
       <div className="flex items-center justify-center pt-17 pb-1 text-[20px]">
@@ -152,8 +184,10 @@ function Timer() {
         
         
       </div>
-      
 
+      {showDoneModal && <SessionsDoneModal onAddSession={addExtraSession} onClose={() => setShowDoneModal(false)}/>}
+
+</>
   );
 }
 

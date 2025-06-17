@@ -3,11 +3,6 @@ import { Link, Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import Pomodoro from "../components/Pomodoro";
 
-import { CiCalendarDate } from "react-icons/ci";
-import { CiSettings } from "react-icons/ci";
-import { CiUser } from "react-icons/ci";
-import { CiCircleCheck } from "react-icons/ci";
-import { CiViewBoard } from "react-icons/ci";
 
 import todosIcon from '../img/todosicon.PNG';
 import calendarIcon from '../img/calendaricon.PNG';
@@ -22,8 +17,13 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
+  
+
   return (
+    
     <React.Fragment>
+
+      
       <div className='topdiv'></div>
       <div className='topdivbottom'></div>
       
@@ -38,46 +38,54 @@ function RootComponent() {
       <div className="flex">
         <Pomodoro />
 
-        <div className="ml-8 text-light-brown mt-[56px]">
+        <div className="ml-8 mt-[56px]">
           
-          <div className="flex ml-8">
+          
+          
+          
+
+          <div className="flex bg-[url(img/diary.PNG)] w-260 bg-contain h-130 mr-[30px] font-bubbly text-[14px]">
+
+            <div className="flex text-light-brown flex-row gap-2 ">
 
 
             
             
 
-            <Link to="/todo" activeProps={activeProps}>
-              {({isActive}) => <><img src={todosIcon} className={` border-4 border-b-0 border-primary-pink rounded-t-lg absolute left-[530px] h-10 w-11 ${isActive ? 'bg-primary-white top-[157px]' : 'bg-light-pink pb-2 h-12 top-[146px]'}`}/></>}
+            <Link to="/todo" activeProps={activeProps} className="ml-16 w-11 h-5">
+              {({isActive}) => <><img src={todosIcon} className={`border-4 border-b-0 border-primary-pink rounded-t-lg  ${isActive ? 'bg-primary-white -mt-[14px]' : 'bg-light-pink pb-2 h-12 -mt-[25px]'}`}/></>}
             </Link>
 
             
-            <Link to="/calendar" activeProps={activeProps}>
-              {({isActive}) => <><img src={calendarIcon} className={` border-4 border-b-0 border-primary-pink rounded-t-lg absolute left-[580px] h-10 w-11 ${isActive ? 'bg-primary-white top-[157px]' : 'bg-light-pink pb-2 h-12 top-[146px]'}`}/></>}
+            <Link to="/calendar" activeProps={activeProps} className="min-w-11 h-5">
+              {({isActive}) => <><img src={calendarIcon} className={`border-4 border-b-0 border-primary-pink rounded-t-lg h-10 ${isActive ? 'bg-primary-white -mt-[14px] ' : 'bg-light-pink pb-2 h-12 -mt-[25px]'}`}/></>}
             </Link>
         
-            <Link to="/statistics" activeProps={activeProps}>
-              {({isActive}) => <><img src={statisticsIcon} className={` border-4 border-b-0 border-primary-pink rounded-t-lg absolute left-[630px] h-10 w-11 ${isActive ? 'bg-primary-white top-[157px]' : 'bg-light-pink pb-2 h-12 top-[146px]'}`}/></>}
+            <Link to="/statistics" activeProps={activeProps} className="min-w-11 h-5">
+              {({isActive}) => <><img src={statisticsIcon} className={`border-4 border-b-0 border-primary-pink rounded-t-lg h-10 ${isActive ? 'bg-primary-white -mt-[14px] ' : 'bg-light-pink pb-2 h-12 -mt-[25px]'}`}/></>}
             </Link>
 
-            <Link to="/profile" activeProps={activeProps}>
-              {({isActive}) => <><img src={profileIcon} className={` border-4 border-b-0 border-primary-pink rounded-t-lg absolute left-[680px] h-10 w-11 ${isActive ? 'bg-primary-white top-[157px]' : 'bg-light-pink pb-2 h-12 top-[146px]'}`}/></>}
+            <Link to="/profile" activeProps={activeProps} className="min-w-11 h-5">
+              {({isActive}) => <><img src={profileIcon} className={`border-4 border-b-0 border-primary-pink rounded-t-lg h-10 ${isActive ? 'bg-primary-white -mt-[14px] ' : 'bg-light-pink pb-2 h-12 -mt-[25px]'}`}/></>}
             </Link>
 
-            <Link to="/settings" activeProps={activeProps}>
-              {({isActive}) => <><img src={settingsIcon} className={` border-4 border-b-0 border-primary-pink rounded-t-lg absolute left-[730px] h-10 w-11 ${isActive ? 'bg-primary-white top-[157px]' : 'bg-light-pink pb-2 h-12 top-[146px]'}`}/></>}
+            <Link to="/settings" activeProps={activeProps} className="min-w-11 h-5">
+              {({isActive}) => <><img src={settingsIcon} className={`border-4 border-b-0 border-primary-pink rounded-t-lg h-10 ${isActive ? 'bg-primary-white -mt-[14px] ' : 'bg-light-pink pb-2 h-12 -mt-[25px]'}`}/></>}
             </Link>
           </div>
+
+
+            <Outlet />
+          </div>
+
           
 
-
-
-
-
-          <Outlet />
-
-        </div>
+          
+          
+         
+        </div> 
       </div>
-
+     
       <TanStackRouterDevtools />
     </React.Fragment>
   );

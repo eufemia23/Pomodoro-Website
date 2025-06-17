@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 body {
-  background-color: rgb(102, 92, 88);
+  background-color: rgb(150, 146, 144);
   background-image: url("img/bglight.PNG");
   background-size: 500px;
   background-blend-mode:overlay;
@@ -40,8 +40,6 @@ body {
   --color-accent-dark-green: rgb(140, 163, 86);
   --color-light-white: rgb(254, 236, 213);
   --color-darker-white: rgb(208, 155, 119);
-
-  
 
   --color-wood-primary: rgb(132, 88, 68);
   --color-wood-border: rgb(65, 44, 31);
