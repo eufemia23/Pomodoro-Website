@@ -1,10 +1,14 @@
 import { HiArrowTurnDownLeft } from "react-icons/hi2";
 import { FaCheck } from "react-icons/fa6";
 import { HiOutlineTrash } from "react-icons/hi2";
-import { useState, type SetStateAction } from "react";
+import { useEffect, useState, type SetStateAction } from "react";
+
+
 
 const Todo = () => {
-  const [todos, setTodos] = useState<string[]>([]);
+  
+
+  const [todos, setTodos] = useState<string[]>(JSON.parse(localStorage.todos) || []);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -15,11 +19,20 @@ const Todo = () => {
       setInputValue("");
     }
   };
+  
+  useEffect(() => {
+    localStorage.todos = JSON.stringify(todos)
+  }, [todos])
+
   const handleChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setInputValue(e.target.value);
   };
 
-  const [doneTodos, setDoneTodos] = useState<string[]>([]);
+  const [doneTodos, setDoneTodos] = useState<string[]>(JSON.parse(localStorage.doneTodos) || []);
+
+  useEffect(() => {
+    localStorage.doneTodos = JSON.stringify(doneTodos)
+  }, [doneTodos])
 
   const handleRemove = (index: number) => {
     setTodos(todos.filter((_, i) => i !== index));
