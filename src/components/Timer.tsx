@@ -5,6 +5,7 @@ import { useWithSound } from './useWithSound';
 import alarmDone from '../assets/alarmdone.wav';
 import alarmStart from '../assets/alarmstart.mp3'
 import SessionsDoneModal from './SessionsDoneModal';
+import NoSessionsModal from './NoSessionsModal';
 
 
 
@@ -20,6 +21,8 @@ function Timer() {
 
 
   const [showDoneModal, setShowDoneModal] = useState(false)
+
+  const [showNoSessionsModal, setShowNoSessionsModal] = useState(false)
 
   let time = new Date(timer * 1000).toISOString().substring(14, 19)
 
@@ -77,11 +80,15 @@ function Timer() {
           }
           
         } else if (timerMode === 'break') {
-          playStartSound();
-          setTimerMode('pomodoro')
-          resetTimer()
-          setIsRunning(true);
-          
+          if (session === 0) {
+            setIsRunning(false);
+            setShowDoneModal(true);
+          } else {
+            playStartSound();
+            setTimerMode('pomodoro')
+            resetTimer()
+            setIsRunning(true);
+          }
         }
       }
       
@@ -120,6 +127,13 @@ function Timer() {
     setIsRunning(true);
   }
 
+  const startClick = () => {
+    if (session === 0 && timerMode === 'pomodoro') {
+      setShowNoSessionsModal(true)
+    } else {
+      setIsRunning(true)
+    }
+  }
   
   return (<>
     
@@ -138,7 +152,7 @@ function Timer() {
 
       <div className="flex items-center justify-center ">
         
-        <button onClick={() => setIsRunning(true)} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Start</button>
+        <button onClick={() => startClick()} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Start</button>
         <button onClick={() => setIsRunning(false)} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Pause</button>
         <button onClick={() => resetTimer()} className={`shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] px-1 text-light-brown font-bubbly hover:cursor-pointer mx-3 w-20 duration-100 ease-linear mb-1 active:mb-0 active:shadow-none active:mt-[2px] ${timerMode === 'break' ? 'hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green' : 'hover:bg-light-pink active:border-primary-pink active:bg-light-pink'}`}>Reset</button>
       </div>
@@ -177,6 +191,9 @@ function Timer() {
       </div>
 
       {showDoneModal && <SessionsDoneModal onAddSession={addExtraSession} onClose={() => setShowDoneModal(false)}/>}
+
+      {showNoSessionsModal && <NoSessionsModal onClose={() => setShowNoSessionsModal(false)}/>}
+        
 
 </>
   );
