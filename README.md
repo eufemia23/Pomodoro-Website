@@ -22,7 +22,7 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 - [x] Sessions are able to be removed or added
 - [x] When sessions are done, a pop up appears that lets you exit or add another session
 - [ ] The amount of time is controllable (in settings) and saves in localStorage
-- [ ] When the sessions are equal to 0, and you want to start the timer, a little hint appears that tells you to add sessions first
+- [x] When the sessions are equal to 0, and you want to start the timer, a little hint appears that tells you to add sessions first
 ### Todo List
 - [x] Working Add Todo List that lets you input your todo, delete it, and mark it as done
 - [x] Working Done Todos List where todos marked as done appear, and are able to be marked as undone (and go back to the Add Todo List) or deleted
