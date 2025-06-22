@@ -92,9 +92,9 @@ const Settings = () => {
               <button
                 type="button"
                 className="border-3 rounded-md border-r-0 rounded-r-none border-primary-pink w-8 py-1 outline-0 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white mt-2 duration-100 ease-linear hover:cursor-pointer active:inset-shadow-light-pink ml-5"
-                onClick={handlePomPlusClick}
+                onClick={handlePomMinusClick}
               >
-                +
+                -
               </button>
               <input
                 id="pomodoroTime"
@@ -107,9 +107,9 @@ const Settings = () => {
               <button
                 type="button"
                 className="border-3 rounded-md border-l-0 rounded-l-none border-primary-pink w-8 py-1 outline-0 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white mt-2 duration-100 ease-linear hover:cursor-pointer active:inset-shadow-light-pink"
-                onClick={handlePomMinusClick}
+                onClick={handlePomPlusClick}
               >
-                -
+                +
               </button>
               <div className="inline ml-3">minutes</div>
               <button
@@ -128,9 +128,9 @@ const Settings = () => {
                 <button
                   type="button"
                   className="border-3 rounded-md border-r-0 rounded-r-none border-primary-pink w-8 py-1 outline-0 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white mt-2 duration-100 ease-linear hover:cursor-pointer active:inset-shadow-light-pink ml-5"
-                  onClick={handleBreakPlusClick}
+                  onClick={handleBreakMinusClick}
                 >
-                  +
+                  -
                 </button>
                 <input
                   id="breakTime"
@@ -143,9 +143,9 @@ const Settings = () => {
                 <button
                   type="button"
                   className="border-3 rounded-md border-l-0 rounded-l-none border-primary-pink w-8 py-1 outline-0 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white mt-2 duration-100 ease-linear hover:cursor-pointer active:inset-shadow-light-pink"
-                  onClick={handleBreakMinusClick}
+                  onClick={handleBreakPlusClick}
                 >
-                  -
+                  +
                 </button>
                 <div className="inline ml-3">minutes</div>
 
