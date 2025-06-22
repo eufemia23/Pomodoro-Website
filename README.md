@@ -41,7 +41,7 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 - [ ] There's an add friends component that allows you to search for usernames, and add them as friends
 - [ ] There's a friends component that shows you the basic statistics and characters of your friends, and if they're currently studying
 ### Settings
-- [ ] Settings related to changing the pomodoro and break time; updates the time and saves it in localStorage
+- [x] Settings related to changing the pomodoro and break time; updates the time and saves it in localStorage
 - [ ] Settings related to the sound that plays at the beginning and end of the pomodoro timer
 - [ ] Settings related to the starting day of the calendar (Sunday or Monday)
 - [ ] Settings related to your profile and logging in (password, email, name, username etc.)
