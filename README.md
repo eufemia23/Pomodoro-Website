@@ -36,14 +36,16 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 - [ ] When not logged in, the statistics fields are blurred and unaccessible, stating you need to be logged in to access them
 - [ ] When logged in, there's multiple fields for different statistics: today, this week, this month, this year, displaying the amount of time you've studied so far
 ### Profile
-- [ ] When not logged in, a component for logging in/signing up is displayed; when logged in, a component with your name, username, character and basic statistics (today: x hours, this week: x hours) is displayed.
+- [x] When not logged in, a component for logging in/signing up is displayed and the rest of the tab is unaccessible; when logged in, a component with your name, username, character and a bio is displayed
+- [ ] Upon clicking on log in/sign in buttons, you get shown a modal component for logging in/signing in
+- [ ] There's an edit button that displays a modal for you to change your avatar, bio, and name; there's a few avatars to choose from
 - [ ] There's a create your own character component that allows you to edit the skin color, hair, outfit, etc. of your character; it will then be displayed on the top right corner of the screen to help you with studying
-- [ ] There's an add friends component that allows you to search for usernames, and add them as friends
-- [ ] There's a friends component that shows you the basic statistics and characters of your friends, and if they're currently studying
+- [ ] There's an add friends component that displays a modal that allows you to search for usernames, and add them as friends
+- [ ] There's a friends component that shows you the basic information about your friends, and if they're currently studying; you can also remove your friends or go to their profile
 ### Settings
 - [x] Settings related to changing the pomodoro and break time; updates the time and saves it in localStorage
 - [ ] Settings related to the sound that plays at the beginning and end of the pomodoro timer
 - [ ] Settings related to the starting day of the calendar (Sunday or Monday)
-- [ ] Settings related to your profile and logging in (password, email, name, username etc.)
+- [ ] Settings related to your profile and logging in (password, email, username etc.)
 
 
