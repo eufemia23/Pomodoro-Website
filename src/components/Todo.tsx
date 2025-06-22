@@ -70,7 +70,7 @@ const Todo = () => {
                 onChange={handleChange}
                 type="text"
                 placeholder="Start writing and press enter to create task"
-                className="border-4 rounded-md border-primary-pink w-100 py-1 pl-2 outline-0 bg-light-pink pr-12 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white"
+                className="border-3 rounded-md border-primary-pink w-100 py-1 pl-2 outline-0 bg-light-pink pr-12 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white"
               />
               <button
                 type="submit"
