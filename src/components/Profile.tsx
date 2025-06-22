@@ -1,15 +1,19 @@
-
+import { useState } from "react";
+import ProfileLoggedIn from "./ProfileLoggedIn";
+import ProfileNotLoggedIn from "./ProfileNotLoggedIn";
 
 const Profile = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
-    <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-41">Profile</h2>
-    
-        <div className="w-125 px-20 py-10">left side profile</div>
-        <div className="w-125 px-15 py-10">right side</div>
-      
-      </>
-  )
-}
+      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-41">
+        Profile
+      </h2>
 
-export default Profile
+      {isLoggedIn ? <ProfileLoggedIn /> : <ProfileNotLoggedIn />}
+    </>
+  );
+};
+
+export default Profile;

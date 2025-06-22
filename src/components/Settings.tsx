@@ -4,7 +4,7 @@ const Settings = () => {
   let inputValuePomStored;
 
   if (localStorage.getItem("inputValuePom")) {
-    inputValuePomStored = JSON.parse(localStorage.inputValuePom)
+    inputValuePomStored = JSON.parse(localStorage.inputValuePom);
   } else {
     inputValuePomStored = 25;
   }
@@ -25,11 +25,10 @@ const Settings = () => {
   let inputValueBreakStored;
 
   if (localStorage.getItem("inputValueBreak")) {
-    inputValueBreakStored = JSON.parse(localStorage.inputValueBreak)
+    inputValueBreakStored = JSON.parse(localStorage.inputValueBreak);
   } else {
     inputValueBreakStored = 5;
   }
-
 
   const [inputValueBreak, setInputValueBreak] = useState(inputValueBreakStored);
 

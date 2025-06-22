@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 
 export const useWithSound = (audioSource) => {
   const soundRef = useRef();
@@ -9,14 +9,14 @@ export const useWithSound = (audioSource) => {
 
   const playDoneSound = () => {
     soundRef.current.play();
-  }
+  };
 
   const playStartSound = () => {
     soundRef.current.play();
-  }
+  };
 
   return {
     playDoneSound,
     playStartSound,
   };
-}
+};
