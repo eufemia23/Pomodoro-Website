@@ -112,14 +112,14 @@ function Timer() {
     setTimerMode('pomodoro')
     setTimer(inputValuePomStored * 60)
     setIsRunning(false);
-    setResetTime(1500)
+    setResetTime(inputValuePomStored * 60)
   }
 
   const handleBreakClick = () => {
     setTimerMode('break')
     setTimer(inputValueBreakStored * 60)
     setIsRunning(false);
-    setResetTime(300)
+    setResetTime(inputValueBreakStored * 60)
   }
 
   const addExtraSession = () => {
