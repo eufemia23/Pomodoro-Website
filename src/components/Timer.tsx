@@ -10,12 +10,28 @@ import NoSessionsModal from './NoSessionsModal';
 
 
 function Timer() {
+  let inputValuePomStored;
+  if (localStorage.getItem("inputValuePom")) {
+    inputValuePomStored = JSON.parse(localStorage.inputValuePom)
+  } else {
+    inputValuePomStored = 25;
+  }
+  
+
+  let inputValueBreakStored;
+  if (localStorage.getItem("inputValueBreak")) {
+    inputValueBreakStored = JSON.parse(localStorage.inputValueBreak)
+  } else {
+    inputValueBreakStored = 5;
+  }
+  
+
 
   const { playDoneSound } = useWithSound(alarmDone);
   const { playStartSound } = useWithSound(alarmStart);
   
   const [session, setSession] = useState(5)
-  const [timer, setTimer] = useState(2)
+  const [timer, setTimer] = useState(inputValuePomStored * 60)
   const [isRunning, setIsRunning] = useState(false)
   const [resetTime, setResetTime] = useState(900)
 
@@ -40,19 +56,7 @@ function Timer() {
     setTimer(resetTime)
   }
 
-  function increment() {
-    const newTime = timer + 300
-    setIsRunning(false);
-    setTimer(newTime);
-    setResetTime(newTime)
-  }
-
-  function decrement() {
-    const newTime = timer - 300
-    setIsRunning(false);
-    setTimer(newTime);
-    setResetTime(newTime)
-  }
+  
 
   
 
@@ -106,14 +110,14 @@ function Timer() {
 
   const handlePomodoroClick = () => {
     setTimerMode('pomodoro')
-    setTimer(1500)
+    setTimer(inputValuePomStored * 60)
     setIsRunning(false);
     setResetTime(1500)
   }
 
   const handleBreakClick = () => {
     setTimerMode('break')
-    setTimer(300)
+    setTimer(inputValueBreakStored * 60)
     setIsRunning(false);
     setResetTime(300)
   }
@@ -159,11 +163,10 @@ function Timer() {
       
 
 
-      <button className='ml-47' onClick={() => decrement()}>-</button>
-      <button onClick={() => increment()}>+</button>
+      
 
 
-      <div className="shadow-[0px_5px_5px_rgba(132,88,68,0.5)] w-78 flex justify-center mx-auto h-37 bg-darker-white border-4 border-wood-warm rounded-[20px]">
+      <div className="shadow-[0px_5px_5px_rgba(132,88,68,0.5)] w-78 flex justify-center mx-auto h-37 bg-darker-white border-4 border-wood-warm rounded-[20px] mt-6.5">
           <div className="h-[139px] border-4 border-darker-white rounded-[17px] bg-wood-warm  ">
             <div className="inset-shadow-[0px_7px_15px_rgba(254,236,213,0.2)] m-[5px] border-accent-white border-3 h-[121px] rounded-[10px] border-dashed text-center font-cursive font-bold text-dark-white text-[40px] pt-5 text-shadow-[0px_3px_5px_rgba(0,0,0,0.4)] shadow-[0px_5px_10px_rgba(0,0,0,0.3)]">
 

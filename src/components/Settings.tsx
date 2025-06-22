@@ -1,11 +1,19 @@
 import { useState, type SetStateAction } from "react";
 
 const Settings = () => {
-  const [inputValuePom, setInputValuePom] = useState(25);
+  let inputValuePomStored;
+
+  if (localStorage.getItem("inputValuePom")) {
+    inputValuePomStored = JSON.parse(localStorage.inputValuePom)
+  } else {
+    inputValuePomStored = 25;
+  }
+
+  const [inputValuePom, setInputValuePom] = useState(inputValuePomStored);
 
   const handleSubmitPom = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
     setInputValuePom(inputValuePom);
+    localStorage.inputValuePom = JSON.stringify(inputValuePom);
   };
 
   const handleChangePom = (e: {
@@ -14,11 +22,20 @@ const Settings = () => {
     setInputValuePom(e.target.value.replace(/\D/g, ""));
   };
 
-  const [inputValueBreak, setInputValueBreak] = useState(5);
+  let inputValueBreakStored;
+
+  if (localStorage.getItem("inputValueBreak")) {
+    inputValueBreakStored = JSON.parse(localStorage.inputValueBreak)
+  } else {
+    inputValueBreakStored = 5;
+  }
+
+
+  const [inputValueBreak, setInputValueBreak] = useState(inputValueBreakStored);
 
   const handleSubmitBreak = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
     setInputValueBreak(inputValueBreak);
+    localStorage.inputValueBreak = JSON.stringify(inputValueBreak);
   };
 
   const handleChangeBreak = (e: {
