@@ -13,12 +13,36 @@ import AvatarBDD from "../img/avatars/avatar-bdd.PNG";
 import AvatarBDL from "../img/avatars/avatar-bdl.PNG";
 
 const ProfileLoggedIn = () => {
-  const [userName, setUserName] = useState("Aurelia");
+  let inputValueNameStored;
+
+  if (localStorage.getItem("storedUserName")) {
+    inputValueNameStored = JSON.parse(localStorage.storedUserName);
+  } else {
+    inputValueNameStored = "Aurelia";
+  }
+
+  let inputValueBioStored;
+
+  if (localStorage.getItem("storedUserBio")) {
+    inputValueBioStored = JSON.parse(localStorage.storedUserBio);
+  } else {
+    inputValueBioStored = "Hi! I'm Aurelia and I love my two cats Mabel and Lain and studying! Add me on my GitHub @eufemia23";
+  }
+
+  let avatarStored;
+
+  if (localStorage.getItem("storedUserAvatar")) {
+    avatarStored = JSON.parse(localStorage.storedUserAvatar);
+  } else {
+    avatarStored = AvatarGLL;
+  }
+
+
+
+  const [userName, setUserName] = useState(inputValueNameStored);
   const [userUsername, setUserUsername] = useState("eufemia23");
-  const [userAvatar, setUserAvatar] = useState(AvatarGLD);
-  const [userBio, setUserBio] = useState(
-    "Hi! I'm Aurelia and I love my two cats Mabel and Lain and studying! Add me on my GitHub @eufemia23"
-  );
+  const [userAvatar, setUserAvatar] = useState(avatarStored);
+  const [userBio, setUserBio] = useState(inputValueBioStored);
 
   const [friends, setFriends] = useState([
     "Alicia",

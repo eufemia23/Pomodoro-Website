@@ -47,7 +47,11 @@ const EditProfileModal = ({
     setUserName(inputValueName);
     setUserBio(inputValueBio);
     setUserAvatar(chosenAvatar);
+    localStorage.storedUserName = JSON.stringify(inputValueName);
+    localStorage.storedUserBio = JSON.stringify(inputValueBio);
+    localStorage.storedUserAvatar = JSON.stringify(chosenAvatar);
     onClose();
+    
   };
 
   const [chosenAvatar, setChosenAvatar] = useState(userAvatar);
