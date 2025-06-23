@@ -10,7 +10,7 @@ const RemoveFriendModal = ({ onClose, name, onRemove }) => {
     }
   };
 
-  const removeFriend = (e) => {
+  const removeFriend = () => {
     onRemove()
     onClose();
   }

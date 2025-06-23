@@ -174,8 +174,6 @@ const removeFriend = (index: number) => {
         <RemoveFriendModal
           onClose={() => setShowRemoveFriendModal(false)}
           name={removedFriendName}
-          friends={friends} 
-          setFriends={setFriends}
           onRemove={() => removeFriend(removedFriendIndex)}
         />
       )}
