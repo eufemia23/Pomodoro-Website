@@ -19,11 +19,11 @@ const ProfileLoggedIn = () => {
 
 
 
-  const [showEditModal, setShowEditModal] = useState(true);
+  const [showEditModal, setShowEditModal] = useState(false);
 
 
   const handleEditClick = () => {
-    
+    setShowEditModal(true)
   }
 
 
