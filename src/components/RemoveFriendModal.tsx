@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { IoClose } from "react-icons/io5";
 
-const RemoveFriendModal = ({ onClose, name, friends, setFriends, onRemove }) => {
+const RemoveFriendModal = ({ onClose, name, onRemove }) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
