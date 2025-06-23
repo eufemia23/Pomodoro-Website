@@ -11,6 +11,7 @@ import AvatarBLD from "../img/avatars/avatar-bld.PNG";
 import AvatarBLL from "../img/avatars/avatar-bll.PNG";
 import AvatarBDD from "../img/avatars/avatar-bdd.PNG";
 import AvatarBDL from "../img/avatars/avatar-bdl.PNG";
+import RemoveFriendModal from "./RemoveFriendModal";
 
 const ProfileLoggedIn = () => {
   let inputValueNameStored;
@@ -73,12 +74,22 @@ const ProfileLoggedIn = () => {
     },
   ]);
 
+const [removedFriendName, setRemovedFriendName] = useState("");
+const [removedFriendIndex, setRemovedFriendIndex] = useState<number>();
+
+const [showRemoveFriendModal, setShowRemoveFriendModal] = useState(false);
+const handleRemoveClick = (index: number) => {
+  setShowRemoveFriendModal(true)
+  setRemovedFriendName(friends[index].name)
+  setRemovedFriendIndex(index)
+};
+
+const removeFriend = (index: number) => {
+  setFriends(friends.filter((_, i) => i !== index));
+}
 
 
 
-  function handleRemove(index: number): void {
-    throw new Error("Function not implemented.");
-  }
 
   const [showEditModal, setShowEditModal] = useState(false);
 
@@ -137,7 +148,7 @@ const ProfileLoggedIn = () => {
                 <div className="mt-3.5 ml-5">{friend.status}</div>
                 <div className="mt-3.5 ml-5">{friend.time}</div>
                 <div className="mt-3.5 ml-10">
-                  <button key={index} onClick={() => handleRemove(index)}>
+                  <button key={index} onClick={() => handleRemoveClick(index)}>
                     <FaHeartBroken className="size-5 hover:size-6 duration-100 ease-linear hover:cursor-pointer active:text-primary-pink active:size-6" />
                   </button>
                 </div>
@@ -156,6 +167,16 @@ const ProfileLoggedIn = () => {
           setUserBio={setUserBio}
           userAvatar={userAvatar}
           setUserAvatar={setUserAvatar}
+        />
+      )}
+
+      {showRemoveFriendModal && (
+        <RemoveFriendModal
+          onClose={() => setShowRemoveFriendModal(false)}
+          name={removedFriendName}
+          friends={friends} 
+          setFriends={setFriends}
+          onRemove={() => removeFriend(removedFriendIndex)}
         />
       )}
     </>
