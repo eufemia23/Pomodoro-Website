@@ -1,6 +1,8 @@
 import { useState } from "react";
 import profileIcon from "../img/profileicon.PNG";
 import { FaHeartBroken } from "react-icons/fa";
+import { MdEdit } from "react-icons/md";
+import EditProfileModal from "./EditProfileModal";
 
 const ProfileLoggedIn = () => {
   const [userName, setUserName] = useState('Aurelia')
@@ -15,6 +17,20 @@ const ProfileLoggedIn = () => {
     throw new Error("Function not implemented.");
   }
 
+
+
+  const [showEditModal, setShowEditModal] = useState(true);
+
+
+  const handleEditClick = () => {
+    
+  }
+
+
+
+
+  
+
   return (
     <>
       <div className="w-125 -ml-140 px-20 mt-10 text-light-brown">
@@ -24,6 +40,9 @@ const ProfileLoggedIn = () => {
             <div className="mt-6">
               <div className="font-super-cursive font-extrabold text-[30px]">{userName}</div>
               <div className="ml-1">{userUsername}</div>
+            </div>
+            <div className="pl-41 pt-2">
+              <MdEdit className="text-[20px] hover:text-[23px] hover:cursor-pointer duration-100 ease-linear active:text-[23px] active:text-accent-dark-green" onClick={handleEditClick}/>
             </div>
           </div>
 
@@ -77,6 +96,14 @@ const ProfileLoggedIn = () => {
 
 
       </div>
+
+
+      {showEditModal && (
+        <EditProfileModal
+          onClose={() => setShowEditModal(false)}
+          
+        />
+      )}
     </>
   );
 };
