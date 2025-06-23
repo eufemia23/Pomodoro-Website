@@ -38,7 +38,7 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 ### Profile
 - [x] When not logged in, a component for logging in/signing up is displayed and the rest of the tab is unaccessible; when logged in, a component with your name, username, character and a bio is displayed
 - [ ] Upon clicking on log in/sign in buttons, you get shown a modal component for logging in/signing in
-- [ ] There's an edit button that displays a modal for you to change your avatar, bio, and name; there's a few avatars to choose from
+- [x] There's an edit button that displays a modal for you to change your avatar, bio, and name; there's a few avatars to choose from
 - [ ] There's a create your own character component that allows you to edit the skin color, hair, outfit, etc. of your character; it will then be displayed on the top right corner of the screen to help you with studying
 - [ ] There's an add friends component that displays a modal that allows you to search for usernames, and add them as friends
 - [ ] There's a friends component that shows you the basic information about your friends, and if they're currently studying; you can also remove your friends or go to their profile
