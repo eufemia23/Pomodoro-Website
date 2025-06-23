@@ -1,5 +1,13 @@
 import { useRef, useState, type SetStateAction } from "react";
 import { IoClose } from "react-icons/io5";
+import AvatarGLD from "../img/avatars/avatar-gld.PNG";
+import AvatarGLL from "../img/avatars/avatar-gll.PNG";
+import AvatarGDD from "../img/avatars/avatar-gdd.PNG";
+import AvatarGDL from "../img/avatars/avatar-gdl.PNG";
+import AvatarBLD from "../img/avatars/avatar-bld.PNG";
+import AvatarBLL from "../img/avatars/avatar-bll.PNG";
+import AvatarBDD from "../img/avatars/avatar-bdd.PNG";
+import AvatarBDL from "../img/avatars/avatar-bdl.PNG";
 
 const EditProfileModal = ({ onClose }) => {
   const modalRef = useRef();
@@ -10,20 +18,21 @@ const EditProfileModal = ({ onClose }) => {
     }
   };
 
-  const [inputValueName, setInputValueName] = useState("");
+  const [inputValueName, setInputValueName] = useState("Aurelia");
 
-  const handleChangeName = (e: { target: { value: SetStateAction<string> } }) => {
+  const handleChangeName = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setInputValueName(e.target.value);
-};
+  };
 
   const [inputValueBio, setInputValueBio] = useState("");
 
-  const handleChangeBio = (e: { target: { value: SetStateAction<string> } }) => {
+  const handleChangeBio = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setInputValueBio(e.target.value);
   };
-
-
-
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -31,8 +40,6 @@ const EditProfileModal = ({ onClose }) => {
       setInputValueName("");
     }
   };
-
-  
 
   return (
     <div
@@ -46,7 +53,7 @@ const EditProfileModal = ({ onClose }) => {
             <div className="bg-primary-white m-1 rounded-[13px] inset-shadow-[0px_0px_5px_rgba(65,44,31,0.8)] font-bubbly text-wood-primary  h-138">
               <div className="flex justify-end">
                 <button
-                  className="pt-3 pr-3 text-[20px] hover:text-[23px] duration-100 ease-linear hover:cursor-pointer active:text-primary-pink "
+                  className="pt-3 h-4 pr-3 text-[20px] hover:text-[23px] duration-100 ease-linear hover:cursor-pointer active:text-primary-pink "
                   onClick={onClose}
                 >
                   <IoClose />
@@ -77,36 +84,53 @@ const EditProfileModal = ({ onClose }) => {
 
                     <div>
                       <div className="mt-3 mb-1">Choose your avatar</div>
-                      <div className="grid grid-cols-5 gap-1">
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar1</div>
+                      <div className="mx-4 grid grid-cols-4 gap-3">
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarGLD}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar2</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarGLL}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar3</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarGDD}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar4</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarGDL}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar5</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarBLD}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar6</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarBLL}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar7</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarBDD}></img>
+                          </div>
                         </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar8</div>
-                        </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar9</div>
-                        </div>
-                        <div className="h-19 bg-accent-dark-green rounded-full flex justify-center items-center">
-                          <div>avatar10</div>
+
+                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                          <div>
+                            <img className="h-19" src={AvatarBDL}></img>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -120,15 +144,13 @@ const EditProfileModal = ({ onClose }) => {
                       </button>
                       <button
                         className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5  hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green h-9"
-                        onClick={onClose} type="submit"
+                        onClick={onClose}
+                        type="submit"
                       >
                         CONFIRM
                       </button>
                     </div>
                   </form>
-
-
-
                 </div>
               </div>
             </div>

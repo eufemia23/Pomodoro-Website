@@ -1,5 +1,5 @@
 import { useState } from "react";
-import profileIcon from "../img/profileicon.PNG";
+import Avatar from "../img/avatars/avatar-gld.PNG";
 import { FaHeartBroken } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import EditProfileModal from "./EditProfileModal";
@@ -7,7 +7,7 @@ import EditProfileModal from "./EditProfileModal";
 const ProfileLoggedIn = () => {
   const [userName, setUserName] = useState('Aurelia')
   const [userUsername, setUserUsername] = useState('eufemia23')
-  const [userPicture, setUserPicture] = useState(profileIcon)
+  const [userPicture, setUserPicture] = useState(Avatar)
   const [userBio, setUserBio] = useState("Hi! I'm Aurelia and I love my two cats Mabel and Lain and studying! Add me on my GitHub @eufemia23")
 
   const [friends, setFriends] = useState(['Alicia', 'Anastasia', 'Whimsy', 'Eliza'])
@@ -36,12 +36,12 @@ const ProfileLoggedIn = () => {
       <div className="w-125 -ml-140 px-20 mt-10 text-light-brown">
         <div className="border-3 rounded-md border-primary-pink w-100 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white">
           <div className="flex">
-            <div className="px-2 pt-2 w-30"><img src={userPicture}></img></div>
+            <div className="m-2 ml-4 w-23"><img src={userPicture}></img></div>
             <div className="mt-6">
               <div className="font-super-cursive font-extrabold text-[30px]">{userName}</div>
               <div className="ml-1">{userUsername}</div>
             </div>
-            <div className="pl-41 pt-2">
+            <div className="pl-42 pt-2">
               <MdEdit className="text-[20px] hover:text-[23px] hover:cursor-pointer duration-100 ease-linear active:text-[23px] active:text-accent-dark-green" onClick={handleEditClick}/>
             </div>
           </div>
@@ -72,7 +72,7 @@ const ProfileLoggedIn = () => {
         {friends.map((friend, index) => (
             <div key={index} className="w-104 border-b-2 border-primary-pink">
               <div className="grid grid-cols-5 w-104">
-                <div><img className="w-10 my-1 ml-2 hover:cursor-pointer" src={profileIcon}></img></div>
+                <div><img className="w-10 my-1 ml-2 hover:cursor-pointer" src={Avatar}></img></div>
 
                 <div className="mt-3.5 row-spa">{friend}</div>
                 <div className="mt-3.5 ml-5">Online</div>
