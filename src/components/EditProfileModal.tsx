@@ -9,7 +9,15 @@ import AvatarBLL from "../img/avatars/avatar-bll.PNG";
 import AvatarBDD from "../img/avatars/avatar-bdd.PNG";
 import AvatarBDL from "../img/avatars/avatar-bdl.PNG";
 
-const EditProfileModal = ({ onClose }) => {
+const EditProfileModal = ({
+  onClose,
+  userName,
+  setUserName,
+  userBio,
+  setUserBio,
+  userAvatar,
+  setUserAvatar,
+}) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -18,7 +26,7 @@ const EditProfileModal = ({ onClose }) => {
     }
   };
 
-  const [inputValueName, setInputValueName] = useState("Aurelia");
+  const [inputValueName, setInputValueName] = useState(userName);
 
   const handleChangeName = (e: {
     target: { value: SetStateAction<string> };
@@ -26,7 +34,7 @@ const EditProfileModal = ({ onClose }) => {
     setInputValueName(e.target.value);
   };
 
-  const [inputValueBio, setInputValueBio] = useState("");
+  const [inputValueBio, setInputValueBio] = useState(userBio);
 
   const handleChangeBio = (e: {
     target: { value: SetStateAction<string> };
@@ -36,15 +44,16 @@ const EditProfileModal = ({ onClose }) => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    if (inputValueName.trim()) {
-      setInputValueName("");
-    }
+    setUserName(inputValueName);
+    setUserBio(inputValueBio);
+    setUserAvatar(chosenAvatar);
+    onClose();
   };
 
-  const [chosenAvatar, setChosenAvatar] = useState<number>();
+  const [chosenAvatar, setChosenAvatar] = useState(userAvatar);
 
-  const handleAvatarClick = (avatarIndex: number) => {
-    setChosenAvatar(avatarIndex);
+  const handleAvatarClick = (avatar: any) => {
+    setChosenAvatar(avatar);
   };
 
   return (
@@ -92,96 +101,96 @@ const EditProfileModal = ({ onClose }) => {
                       <div className="mt-3 mb-1">Choose your avatar</div>
                       <div className="mx-4 grid grid-cols-4 gap-x-3 gap-y-1">
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 1 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarGLD ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(1)}
+                              onClick={() => handleAvatarClick(AvatarGLD)}
                               src={AvatarGLD}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 2 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarGLL ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(2)}
+                              onClick={() => handleAvatarClick(AvatarGLL)}
                               src={AvatarGLL}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 3 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarGDD ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(3)}
+                              onClick={() => handleAvatarClick(AvatarGDD)}
                               src={AvatarGDD}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 4 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarGDL ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(4)}
+                              onClick={() => handleAvatarClick(AvatarGDL)}
                               src={AvatarGDL}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 5 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarBLD ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(5)}
+                              onClick={() => handleAvatarClick(AvatarBLD)}
                               src={AvatarBLD}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 6 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarBLL ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(6)}
+                              onClick={() => handleAvatarClick(AvatarBLL)}
                               src={AvatarBLL}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 7 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarBDD ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(7)}
+                              onClick={() => handleAvatarClick(AvatarBDD)}
                               src={AvatarBDD}
                             ></img>
                           </div>
                         </div>
 
                         <div
-                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 8 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === AvatarBDL ? "bg-accent-dark-green" : "bg-primary-white"}`}
                         >
                           <div>
                             <img
                               className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
-                              onClick={() => handleAvatarClick(8)}
+                              onClick={() => handleAvatarClick(AvatarBDL)}
                               src={AvatarBDL}
                             ></img>
                           </div>
@@ -198,7 +207,7 @@ const EditProfileModal = ({ onClose }) => {
                       </button>
                       <button
                         className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5  hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green h-9"
-                        onClick={onClose}
+                        onClick={handleSubmit}
                         type="submit"
                       >
                         CONFIRM
