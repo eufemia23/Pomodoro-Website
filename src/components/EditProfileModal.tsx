@@ -41,6 +41,12 @@ const EditProfileModal = ({ onClose }) => {
     }
   };
 
+  const [chosenAvatar, setChosenAvatar] = useState<number>();
+
+  const handleAvatarClick = (avatarIndex: number) => {
+    setChosenAvatar(avatarIndex);
+  };
+
   return (
     <div
       ref={modalRef}
@@ -84,52 +90,100 @@ const EditProfileModal = ({ onClose }) => {
 
                     <div>
                       <div className="mt-3 mb-1">Choose your avatar</div>
-                      <div className="mx-4 grid grid-cols-4 gap-3">
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                      <div className="mx-4 grid grid-cols-4 gap-x-3 gap-y-1">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 1 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarGLD}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(1)}
+                              src={AvatarGLD}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 2 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarGLL}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(2)}
+                              src={AvatarGLL}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 3 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarGDD}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(3)}
+                              src={AvatarGDD}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 4 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarGDL}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(4)}
+                              src={AvatarGDL}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 5 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarBLD}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(5)}
+                              src={AvatarBLD}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 6 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarBLL}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(6)}
+                              src={AvatarBLL}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 7 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarBDD}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(7)}
+                              src={AvatarBDD}
+                            ></img>
                           </div>
                         </div>
 
-                        <div className="h-[84px] bg-primary-pink rounded-full flex justify-center items-center">
+                        <div
+                          className={`h-[84px] rounded-full flex justify-center items-center ${chosenAvatar === 8 ? "bg-accent-dark-green" : "bg-primary-white"}`}
+                        >
                           <div>
-                            <img className="h-19" src={AvatarBDL}></img>
+                            <img
+                              className="h-19 hover:cursor-pointer hover:h-20 duration-100 ease-linear"
+                              onClick={() => handleAvatarClick(8)}
+                              src={AvatarBDL}
+                            ></img>
                           </div>
                         </div>
                       </div>
