@@ -44,12 +44,37 @@ const ProfileLoggedIn = () => {
   const [userAvatar, setUserAvatar] = useState(avatarStored);
   const [userBio, setUserBio] = useState(inputValueBioStored);
 
+
+
+
+
+
   const [friends, setFriends] = useState([
-    "Alicia",
-    "Anastasia",
-    "Whimsy",
-    "Eliza",
+    {
+      name: "Alicia",
+      avatar: AvatarGDL,
+      status: "Online",
+      time: "00:10:00"
+    }, {
+      name: "Anastasia",
+      avatar: AvatarGLL,
+      status: "Offline",
+      time: "04:10:00"
+    },{
+      name: "Whimsy",
+      avatar: AvatarGDD,
+      status: "Online",
+      time: "00:40:00"
+    },{
+      name: "Max",
+      avatar: AvatarBDD,
+      status: "Online",
+      time: "00:15:00"
+    },
   ]);
+
+
+
 
   function handleRemove(index: number): void {
     throw new Error("Function not implemented.");
@@ -103,14 +128,14 @@ const ProfileLoggedIn = () => {
               <div className="grid grid-cols-5 w-104">
                 <div>
                   <img
-                    className="w-10 my-1 ml-2 hover:cursor-pointer"
-                    src={AvatarGLD}
+                    className="w-10 my-1 ml-2"
+                    src={friend.avatar}
                   ></img>
                 </div>
 
-                <div className="mt-3.5 row-spa">{friend}</div>
-                <div className="mt-3.5 ml-5">Online</div>
-                <div className="mt-3.5 ml-5">10:00</div>
+                <div className="mt-3.5 row-spa">{friend.name}</div>
+                <div className="mt-3.5 ml-5">{friend.status}</div>
+                <div className="mt-3.5 ml-5">{friend.time}</div>
                 <div className="mt-3.5 ml-10">
                   <button key={index} onClick={() => handleRemove(index)}>
                     <FaHeartBroken className="size-5 hover:size-6 duration-100 ease-linear hover:cursor-pointer active:text-primary-pink active:size-6" />
