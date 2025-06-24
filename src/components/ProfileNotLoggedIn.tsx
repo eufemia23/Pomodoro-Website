@@ -2,9 +2,11 @@ import { useState } from "react";
 import LogInModal from "./LogInModal";
 import { FaCheck } from "react-icons/fa6";
 import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 
 const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showLogInModal, setShowLogInModal] = useState(false);
+  const [loginOrSignup, setLoginOrSignup] = useState("signup")
 
   const handleSignUpClick = () => {
     setShowLogInModal(true);
@@ -18,9 +20,14 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <>
       <div className="w-125 -ml-140 px-20 mt-10 text-light-brown">
-        <h2 className="text-2xl font-bold mb-3 ml-19">You're not logged in</h2>
+        <h2 className="text-2xl font-bold ml-19">{loginOrSignup === "login" ? "You're not logged in" : "Create your account"}</h2>
 
-        <LogIn onLogInClick={() => handleLogInClick} />
+
+        {loginOrSignup === "login" ?
+          <LogIn onLogInClick={() => handleLogInClick} />
+          : <SignUp onSignUpClick={() => handleSignUpClick}/>
+        }
+
       </div>
 
       <div className="w-125 px-15 py-10 text-light-brown">
