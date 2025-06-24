@@ -11,7 +11,13 @@ const Profile = () => {
         Profile
       </h2>
 
-      {isLoggedIn ? <ProfileLoggedIn /> : <ProfileNotLoggedIn />}
+      {isLoggedIn ? 
+      <ProfileLoggedIn /> 
+      : 
+      <ProfileNotLoggedIn 
+        isLoggedIn={isLoggedIn} 
+        setIsLoggedIn={setIsLoggedIn}/>
+      }
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { IoClose } from "react-icons/io5";
 
-const LogInModal = ({ onClose }) => {
+const LogInModal = ({ onClose, isLoggedIn, setIsLoggedIn }) => {
   const modalRef = useRef();
 
   const closeModal = (e) => {
@@ -9,6 +9,10 @@ const LogInModal = ({ onClose }) => {
       onClose();
     }
   };
+
+  const onLogInClick = () => {
+    setIsLoggedIn(true)
+  }
 
  
   
@@ -32,15 +36,15 @@ const LogInModal = ({ onClose }) => {
               </div>
               <div className="px-7 text-center text-[15px]">
                 <div>You are currently accessing a demo version of the website. The login feature hasn't been implemented yet. Do you wish to proceed to a profile mockup?</div>
-                <div className="mt-5 flex justify-center">
+                <div className="mt-4 flex justify-center">
                   <button
-                    className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5  hover:bg-light-pink active:border-primary-pink active:bg-light-pink h-9"
-                    onClick={onClose}
+                    className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5  hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green h-9"
+                    onClick={onLogInClick}
                   >
                     Yes
                   </button>
                   <button
-                    className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5  hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green h-9"
+                    className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5 hover:bg-light-pink active:border-primary-pink active:bg-light-pink  h-9"
                     onClick={onClose}
                   >
                     No
