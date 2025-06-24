@@ -3,7 +3,7 @@ import ProfileLoggedIn from "./ProfileLoggedIn";
 import ProfileNotLoggedIn from "./ProfileNotLoggedIn";
 
 const Profile = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
