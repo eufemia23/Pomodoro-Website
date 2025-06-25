@@ -1,7 +1,7 @@
 import { useState, type SetStateAction } from "react";
 
 
-const ForgotPassword = ({onSendLinkClick, profileMode, setProfileMode}) => {
+const ForgotPassword = ({onSendLinkClick, setProfileMode}) => {
 
   const [inputValueEmail, setInputValueEmail] = useState("");
   const [inputValuePassword, setInputValuePassword] = useState("");

@@ -35,21 +35,18 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
         {profileMode === "login" &&
           <LogIn 
             onLogInClick={() => handleLogInClick}
-            profileMode={profileMode}
             setProfileMode={setProfileMode}
           />
         }
         {profileMode === "signup" &&
           <SignUp 
             onSignUpClick={() => handleSignUpClick}
-            profileMode={profileMode}
             setProfileMode={setProfileMode}
           />
         }
         {profileMode === "forgotpassword" &&
           <ForgotPassword 
             onSendLinkClick={() => handleSendLinkClick}
-            profileMode={profileMode}
             setProfileMode={setProfileMode}
           />
         }

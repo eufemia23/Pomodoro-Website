@@ -1,6 +1,6 @@
 import { useState, type SetStateAction } from "react";
 
-const SignUp = ({ onSignUpClick, profileMode, setProfileMode }) => {
+const SignUp = ({ onSignUpClick, setProfileMode }) => {
 
   const [inputValueUsername, setInputValueUsername] = useState("");
   const [inputValueEmail, setInputValueEmail] = useState("");

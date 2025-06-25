@@ -1,7 +1,7 @@
 import { useState, type SetStateAction } from "react";
 
 
-const LogIn = ({onLogInClick, profileMode, setProfileMode}) => {
+const LogIn = ({onLogInClick, setProfileMode}) => {
 
   const [inputValueEmail, setInputValueEmail] = useState("");
   const [inputValuePassword, setInputValuePassword] = useState("");
