@@ -20,6 +20,10 @@ const LogIn = ({onLogInClick, profileMode, setProfileMode}) => {
   const handleSwitchClick = () => {
     setProfileMode("signup")
   }
+
+  const handleForgotPasswordClick = () => {
+    setProfileMode("forgotpassword")
+  }
   
   return (
     <>
@@ -48,7 +52,7 @@ const LogIn = ({onLogInClick, profileMode, setProfileMode}) => {
                 placeholder="Enter password"
                 className="border-3 rounded-md border-primary-pink w-100 py-1 pl-2 outline-white focus:outline-3 bg-light-pink pr-12 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white"
               />
-              <div className="duration-100 ease-linear mt-3 hover:cursor-pointer hover:text-[15px] ml-67 h-6  hover:ml-66">
+              <div className="duration-100 ease-linear mt-3 hover:cursor-pointer hover:text-[15px] ml-67 h-6  hover:ml-66" onClick={handleForgotPasswordClick}>
                 Forgot password?
               </div>
 

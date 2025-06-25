@@ -3,6 +3,7 @@ import LogInModal from "./LogInModal";
 import { FaCheck } from "react-icons/fa6";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
+import ForgotPassword from "./ForgotPassword";
 
 const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showLogInModal, setShowLogInModal] = useState(false);
@@ -14,6 +15,10 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogInClick = () => {
     setShowLogInModal(true);
   };
+  const handleSendLinkClick = () => {
+    setShowLogInModal(true);
+  };
+
 
   
 
@@ -22,8 +27,9 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
       <div className="w-125 -ml-140 px-20 mt-10 text-light-brown">
         <h2 className="text-2xl font-bold ml-19">
           {profileMode === "login" && "You're not logged in"} {profileMode === "signup" && "Create your account"}
-          {profileMode === "forgotpassword" && "Reset password"}
+          
         </h2>
+        <h2 className="text-2xl font-bold ml-25">{profileMode === "forgotpassword" && "Reset password"}</h2>
 
 
         {profileMode === "login" &&
@@ -41,7 +47,11 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
           />
         }
         {profileMode === "forgotpassword" &&
-          <SignUp onSignUpClick={() => handleSignUpClick}/>
+          <ForgotPassword 
+            onSendLinkClick={() => handleSendLinkClick}
+            profileMode={profileMode}
+            setProfileMode={setProfileMode}
+          />
         }
 
 
