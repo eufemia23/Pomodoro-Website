@@ -167,6 +167,7 @@ const removeFriend = (index: number) => {
           setUserBio={setUserBio}
           userAvatar={userAvatar}
           setUserAvatar={setUserAvatar}
+          mode="edit"
         />
       )}
 

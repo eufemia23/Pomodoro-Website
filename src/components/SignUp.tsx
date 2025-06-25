@@ -1,6 +1,7 @@
 import { useState, type SetStateAction } from "react";
+import EditProfileModal from "./EditProfileModal";
 
-const SignUp = ({ onSignUpClick, setProfileMode }) => {
+const SignUp = ({ onSignUpClick, setProfileMode, isLoggedIn, setIsLoggedIn }) => {
 
   const [inputValueUsername, setInputValueUsername] = useState("");
   const [inputValueEmail, setInputValueEmail] = useState("");
@@ -45,6 +46,23 @@ const SignUp = ({ onSignUpClick, setProfileMode }) => {
   const handleSwitchClick = () => {
     setProfileMode("login")
   }
+
+
+
+
+  
+  const [userName, setUserName] = useState("");
+  const [userUsername, setUserUsername] = useState("eufemia23");
+  const [userAvatar, setUserAvatar] = useState();
+  const [userBio, setUserBio] = useState("");
+
+
+
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  const handleEditClick = () => {
+    setShowEditModal(true);
+  };
 
   return (
     <>
@@ -108,7 +126,7 @@ const SignUp = ({ onSignUpClick, setProfileMode }) => {
             <button
               type="submit"
               className="bg-primary-white shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-wood-warm border-3 rounded-[5px] mt-4 py-1 px-33 mx-auto hover:cursor-pointer duration-100 ease-linear active:mt-5 active:shadow-none hover:bg-accent-green active:border-accent-dark-green active:bg-accent-green block"
-              onClick={onSignUpClick()}
+              onClick={handleEditClick}
             >
               Create an account
             </button>
@@ -121,6 +139,22 @@ const SignUp = ({ onSignUpClick, setProfileMode }) => {
           </div>
         </div>
       </div>
+
+
+      {showEditModal && (
+        <EditProfileModal
+          onClose={() => setShowEditModal(false)}
+          userName={userName}
+          setUserName={setUserName}
+          userBio={userBio}
+          setUserBio={setUserBio}
+          userAvatar={userAvatar}
+          setUserAvatar={setUserAvatar}
+          mode="start"
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      )}
     </>
   );
 };

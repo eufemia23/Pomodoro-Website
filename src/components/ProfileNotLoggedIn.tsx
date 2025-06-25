@@ -5,6 +5,7 @@ import LogIn from "./LogIn";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
 
+
 const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showLogInModal, setShowLogInModal] = useState(false);
   const [profileMode, setProfileMode] = useState("login")
@@ -19,7 +20,7 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
     setShowLogInModal(true);
   };
 
-
+  
   
 
   return (
@@ -42,6 +43,8 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
           <SignUp 
             onSignUpClick={() => handleSignUpClick}
             setProfileMode={setProfileMode}
+            isLoggedIn={isLoggedIn} 
+            setIsLoggedIn={setIsLoggedIn}
           />
         }
         {profileMode === "forgotpassword" &&
@@ -98,6 +101,8 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
           setIsLoggedIn={setIsLoggedIn}
         />
       )}
+
+      
     </>
   );
 };
