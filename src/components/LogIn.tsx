@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, type SetStateAction } from "react";
 
 
-const LogIn = ({onLogInClick}) => {
+const LogIn = ({onLogInClick, profileMode, setProfileMode}) => {
 
   const [inputValueEmail, setInputValueEmail] = useState("");
   const [inputValuePassword, setInputValuePassword] = useState("");
@@ -16,6 +16,10 @@ const LogIn = ({onLogInClick}) => {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
   };
+
+  const handleSwitchClick = () => {
+    setProfileMode("signup")
+  }
   
   return (
     <>
@@ -61,7 +65,7 @@ const LogIn = ({onLogInClick}) => {
             <div className="w-max mx-auto mt-5 pl-15">
               New to Pomodoro Diary?
             </div>
-            <div className="mt-1 ml-33 hover:cursor-pointer hover:text-[15px] hover:ml-32 w-max text-accent-dark-green duration-100 ease-linear">
+            <div className="mt-1 ml-33 hover:cursor-pointer hover:text-[15px] hover:ml-32 w-max text-accent-dark-green duration-100 ease-linear" onClick={handleSwitchClick}>
               Create an account
             </div>
           </div>

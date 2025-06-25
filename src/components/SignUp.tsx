@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, type SetStateAction } from "react";
 
-const SignUp = ({ onSignUpClick }) => {
+const SignUp = ({ onSignUpClick, profileMode, setProfileMode }) => {
 
   const [inputValueUsername, setInputValueUsername] = useState("");
   const [inputValueEmail, setInputValueEmail] = useState("");
@@ -42,6 +42,10 @@ const SignUp = ({ onSignUpClick }) => {
     e.preventDefault();
   };
 
+  const handleSwitchClick = () => {
+    setProfileMode("login")
+  }
+
   return (
     <>
       <div>
@@ -60,7 +64,7 @@ const SignUp = ({ onSignUpClick }) => {
               value={inputValueUsername}
               onChange={handleChangeUsername}
               type="text"
-              placeholder="Enter name"
+              placeholder="Enter username"
               className="border-3 rounded-md border-primary-pink w-100 py-1 pl-2 outline-white focus:outline-3 bg-light-pink pr-12 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white"
             />
 
@@ -112,7 +116,7 @@ const SignUp = ({ onSignUpClick }) => {
         </div>
         <div>
           <div className="w-max mx-auto mt-5 pl-15">Already have an account?</div>
-          <div className="mt-1 ml-44 hover:cursor-pointer hover:text-[15px] hover:ml-43.5 w-max text-accent-dark-green duration-100 ease-linear">
+          <div className="mt-1 ml-44 hover:cursor-pointer hover:text-[15px] hover:ml-43.5 w-max text-accent-dark-green duration-100 ease-linear" onClick={handleSwitchClick}>
             Log In
           </div>
         </div>

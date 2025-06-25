@@ -6,7 +6,7 @@ import SignUp from "./SignUp";
 
 const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showLogInModal, setShowLogInModal] = useState(false);
-  const [loginOrSignup, setLoginOrSignup] = useState("signup")
+  const [profileMode, setProfileMode] = useState("login")
 
   const handleSignUpClick = () => {
     setShowLogInModal(true);
@@ -20,13 +20,30 @@ const ProfileNotLoggedIn = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <>
       <div className="w-125 -ml-140 px-20 mt-10 text-light-brown">
-        <h2 className="text-2xl font-bold ml-19">{loginOrSignup === "login" ? "You're not logged in" : "Create your account"}</h2>
+        <h2 className="text-2xl font-bold ml-19">
+          {profileMode === "login" && "You're not logged in"} {profileMode === "signup" && "Create your account"}
+          {profileMode === "forgotpassword" && "Reset password"}
+        </h2>
 
 
-        {loginOrSignup === "login" ?
-          <LogIn onLogInClick={() => handleLogInClick} />
-          : <SignUp onSignUpClick={() => handleSignUpClick}/>
+        {profileMode === "login" &&
+          <LogIn 
+            onLogInClick={() => handleLogInClick}
+            profileMode={profileMode}
+            setProfileMode={setProfileMode}
+          />
         }
+        {profileMode === "signup" &&
+          <SignUp 
+            onSignUpClick={() => handleSignUpClick}
+            profileMode={profileMode}
+            setProfileMode={setProfileMode}
+          />
+        }
+        {profileMode === "forgotpassword" &&
+          <SignUp onSignUpClick={() => handleSignUpClick}/>
+        }
+
 
       </div>
 
