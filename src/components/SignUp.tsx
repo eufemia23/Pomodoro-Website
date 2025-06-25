@@ -1,5 +1,6 @@
 import { useState, type SetStateAction } from "react";
 import EditProfileModal from "./EditProfileModal";
+import AvatarGLD from "../img/avatars/avatar-gld.PNG";
 
 const SignUp = ({ onSignUpClick, setProfileMode, isLoggedIn, setIsLoggedIn }) => {
 
@@ -53,7 +54,7 @@ const SignUp = ({ onSignUpClick, setProfileMode, isLoggedIn, setIsLoggedIn }) =>
   
   const [userName, setUserName] = useState("");
   const [userUsername, setUserUsername] = useState("eufemia23");
-  const [userAvatar, setUserAvatar] = useState();
+  const [userAvatar, setUserAvatar] = useState(AvatarGLD);
   const [userBio, setUserBio] = useState("");
 
 

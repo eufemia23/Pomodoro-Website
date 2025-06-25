@@ -31,12 +31,18 @@ const EditProfileModal = ({
 
   const [modalMode, setModalMode] = useState(mode);
 
+  const [chosenAvatar, setChosenAvatar] = useState(userAvatar);
+
+
+
   const [inputValueName, setInputValueName] = useState(userName);
+  const [inputNameChar, setInputNameChar] = useState(inputValueName.length);
 
   const handleChangeName = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setInputValueName(e.target.value);
+    setInputNameChar(e.target.value.length);
   };
 
   const [inputValueBio, setInputValueBio] = useState(userBio);
@@ -49,21 +55,31 @@ const EditProfileModal = ({
     setInputBioChar(e.target.value.length);
   };
 
+  const [showError, setShowError] = useState(false)
+  const throwError = () => {
+    setShowError(true)
+  }
+
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    setUserName(inputValueName);
-    setUserBio(inputValueBio);
-    setUserAvatar(chosenAvatar);
-    localStorage.storedUserName = JSON.stringify(inputValueName);
-    localStorage.storedUserBio = JSON.stringify(inputValueBio);
-    localStorage.storedUserAvatar = JSON.stringify(chosenAvatar);
-    if (modalMode === "start") {
-      setIsLoggedIn(true);
+    if (inputNameChar > 0 && inputBioChar > 0) {
+      setUserName(inputValueName);
+      setUserBio(inputValueBio);
+      setUserAvatar(chosenAvatar);
+      localStorage.storedUserName = JSON.stringify(inputValueName);
+      localStorage.storedUserBio = JSON.stringify(inputValueBio);
+      localStorage.storedUserAvatar = JSON.stringify(chosenAvatar);
+      if (modalMode === "start") {
+        setIsLoggedIn(true);
+      }
+      onClose();
+    } else if (inputNameChar === 0 || inputBioChar === 0) {
+      throwError();
     }
-    onClose();
+    
   };
 
-  const [chosenAvatar, setChosenAvatar] = useState(userAvatar);
+  
 
   const handleAvatarClick = (avatar: any) => {
     setChosenAvatar(avatar);
@@ -80,14 +96,15 @@ const EditProfileModal = ({
           <div className="m-[5px] border-darker-white border-3 rounded-[17px] border-dashed shadow-[0px_5px_10px_rgba(0,0,0,0.3)] h-146.5">
             <div className="bg-primary-white m-1 rounded-[13px] inset-shadow-[0px_0px_5px_rgba(65,44,31,0.8)] font-bubbly text-wood-primary h-143 relative">
               <div className="flex justify-end">
+                {modalMode === "edit" &&
                 <button
                   className="pt-3 h-4 pr-3 text-[20px] hover:text-[23px] duration-100 ease-linear hover:cursor-pointer active:text-primary-pink "
                   onClick={onClose}
                 >
                   <IoClose />
-                </button>
+                </button>}
               </div>
-              <div className="px-7">
+              <div className={`px-7 ${modalMode === "start" && "mt-4"}`}>
                 <h1 className="text-[20px]">
                   {modalMode === "edit" && "Edit your profile"}
                   {modalMode === "start" && "Finish creating your profile"}
@@ -100,9 +117,15 @@ const EditProfileModal = ({
                       value={inputValueName}
                       onChange={handleChangeName}
                       type="text"
+                      maxLength={20}
                       placeholder="Insert your new name"
                       className="border-3 rounded-md border-primary-pink w-100 py-1 pl-2 outline-0 bg-light-pink pr-12 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white"
                     />
+                    <div
+                      className={`absolute right-9 top-21 ${inputNameChar === 20 ? "text-red-600" : "text-light-brown"}`}
+                    >
+                      {inputNameChar} / 20
+                    </div>
 
                     <label className="block mt-4 mb-1">Biography</label>
                     <textarea
@@ -119,7 +142,7 @@ const EditProfileModal = ({
                       {inputBioChar} / 150
                     </div>
 
-                    <div>
+                    <div className="h-59">
                       <div className="mt-3 mb-1">Choose your avatar</div>
                       <div className="mx-4 grid grid-cols-4 gap-x-3 gap-y-1">
                         <div
@@ -218,9 +241,14 @@ const EditProfileModal = ({
                           </div>
                         </div>
                       </div>
+                      <div className="flex justify-center mt-1.5 text-red-600">
+                      {showError && "Please input name and bio"}
+                      </div>
                     </div>
 
-                    <div className="mt-5 flex justify-center">
+                    
+
+                    <div className="flex justify-center">
                       <button
                         className="shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-light-brown border-3 rounded-[5px] text-light-brown font-bubbly hover:cursor-pointer mx-3 px-4 duration-100 ease-linear  active:shadow-none active:mt-0.5  hover:bg-light-pink active:border-primary-pink active:bg-light-pink h-9"
                         onClick={onClose}
