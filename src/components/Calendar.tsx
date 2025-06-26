@@ -9,7 +9,6 @@ const Calendar = () => {
     setChosenDay(day);
   };
 
-  console.log(chosenDay);
 
   return (
     <>
