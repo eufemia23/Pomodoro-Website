@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { HiArrowTurnDownLeft } from "react-icons/hi2";
+import Day from "./Day";
 
 const Calendar = () => {
   const [chosenDay, setChosenDay] = useState<number>();
@@ -15,7 +16,7 @@ const Calendar = () => {
       <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-36.5">
         Calendar
       </h2>
-      <div className="w-125 px-1 mt-10 pl-16 font-bubbly -ml-80">
+      <div className="w-125 px-1 mt-10 pl-16 font-bubbly -ml-144">
         <div className="bg-light-pink rounded-md border-4 border-primary-pink">
           <h2 className="mx-auto w-max text-2xl font-bold my-1">June 2025</h2>
           <div className="grid grid-cols-7 bg-dark-green text-[16px]">
@@ -262,217 +263,11 @@ const Calendar = () => {
           </div>
         </div>
       </div>
-      <div className="w-125 rounded-md px-4 py-4 font-bubbly">
-        <h2 className="mx-auto w-max text-2xl font-bold my-1">
-          June {chosenDay ? chosenDay : 2}
-        </h2>
-        <div>Schedule</div>
-
-        <div className="text-[14px] flex justify-between">
-          <div>
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0 rounded-tl-md">
-                <div className="">6:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 rounded-tr-md border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">7:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">8:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">9:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">10:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">11:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">12:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">1:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center rounded-bl-md">
-                <div className="">2:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink rounded-br-md"
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0 rounded-tl-md">
-                <div className="">3:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 rounded-tr-md border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">4:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">5:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">6:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">7:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">8:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">9:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center border-b-0">
-                <div className="">10:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-b-0 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink"
-              />
-            </div>
-
-            <div className="flex">
-              <div className="border-4 border-r-0 border-primary-pink w-15 py-1 bg-light-pink flex justify-center rounded-bl-md">
-                <div className="">11:00</div>
-              </div>
-              <input
-                type="text"
-                placeholder=""
-                className="border-4 border-primary-pink w-40 py-1 pl-2 outline-0 bg-light-pink rounded-br-md"
-              />
-            </div>
-          </div>
-        </div>
+      <div className="w-125 rounded-md px-4 font-bubbly">
+        <Day chosenDay={chosenDay}/>
+        
       </div>
-      \
+    
     </>
   );
 };
