@@ -1,12 +1,22 @@
+import { useState } from "react";
+import StatisticsLoggedIn from "./StatisticsLoggedIn";
+import StatisticsNotLoggedIn from "./StatisticsNotLoggedIn";
+
+
 const Statistics = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
+
   return (
     <>
       <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-37">
         Statistics
       </h2>
 
-      <div className="w-125 px-20 py-10">left side statistics</div>
-      <div className="w-125 px-15 py-10 ">right side</div>
+
+      <div>
+        {isLoggedIn ? <StatisticsLoggedIn /> : <StatisticsNotLoggedIn />}
+      </div>
+      
     </>
   );
 };

@@ -1,0 +1,2 @@
+JSON.parse(localStorage.todos) || 
+JSON.parse(localStorage.doneTodos) || 
