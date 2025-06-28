@@ -1,4 +1,19 @@
+import { useState } from 'react';
+import Calendar from 'react-calendar';
+
+
+
+
+
 const StatisticsLoggedIn = () => {
+  const [value, setValue] = useState(new Date());
+  function onChange(nextValue) {
+    setValue(nextValue);
+  }
+
+  
+
+
   let inputValueNameStored;
 
   if (localStorage.getItem("storedUserName")) {
@@ -116,9 +131,14 @@ const StatisticsLoggedIn = () => {
 
           <div className="">
             <div>
-              <div className="mx-auto w-max pb-2">Today</div>
-              <div className="w-100 border-3 rounded-md border-primary-pink pt-2 pb-1 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white flex justify-around text-wood-warm">
-                
+              
+              <div>
+                <Calendar
+      onChange={onChange}
+      value={value}
+      tileContent={<div className='text-accent-dark-green'>01:20</div>}
+     
+    />
                 
               </div>
             </div>
@@ -138,3 +158,5 @@ const StatisticsLoggedIn = () => {
 };
 
 export default StatisticsLoggedIn;
+
+
