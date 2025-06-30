@@ -4,7 +4,7 @@ import StatisticsNotLoggedIn from "./StatisticsNotLoggedIn";
 
 
 const Statistics = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   return (
     <>
