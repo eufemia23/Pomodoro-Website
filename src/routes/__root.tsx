@@ -8,6 +8,7 @@ import calendarIcon from "../img/calendaricon.PNG";
 import statisticsIcon from "../img/statisticsicon.PNG";
 import profileIcon from "../img/profileicon.PNG";
 import settingsIcon from "../img/settingsicon.PNG";
+import homeIcon from "../img/homeicon.PNG"
 
 const activeProps = { style: {} };
 
@@ -36,15 +37,30 @@ function RootComponent() {
           <div className="flex bg-[url(img/diary.PNG)] w-260 bg-contain h-130 mr-[30px] font-bubbly text-[14px]">
             <div className="flex text-light-brown flex-row gap-2 ">
               <Link
-                to="/todo"
+                to="/"
                 activeProps={activeProps}
                 className="ml-16 w-11 h-5"
               >
                 {({ isActive }) => (
                   <>
                     <img
-                      src={todosIcon}
+                      src={homeIcon}
                       className={`border-4 border-b-0 border-primary-pink rounded-t-lg  ${isActive ? "bg-primary-white -mt-[14px]" : "bg-light-pink pb-2 h-12 -mt-[25px]"}`}
+                    />
+                  </>
+                )}
+              </Link>
+
+              <Link
+                to="/todo"
+                activeProps={activeProps}
+                className="min-w-11 h-5"
+              >
+                {({ isActive }) => (
+                  <>
+                    <img
+                      src={todosIcon}
+                      className={`border-4 border-b-0 border-primary-pink rounded-t-lg h-10 ${isActive ? "bg-primary-white -mt-[14px] " : "bg-light-pink pb-2 h-12 -mt-[25px]"}`}
                     />
                   </>
                 )}

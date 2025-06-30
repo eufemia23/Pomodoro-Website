@@ -16,6 +16,7 @@ import { Route as StatisticsImport } from './routes/statistics'
 import { Route as SettingsImport } from './routes/settings'
 import { Route as ProfileImport } from './routes/profile'
 import { Route as CalendarImport } from './routes/calendar'
+import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
 
@@ -49,10 +50,23 @@ const CalendarRoute = CalendarImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const IndexRoute = IndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
     '/calendar': {
       id: '/calendar'
       path: '/calendar'
@@ -94,6 +108,7 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/profile': typeof ProfileRoute
   '/settings': typeof SettingsRoute
@@ -102,6 +117,7 @@ export interface FileRoutesByFullPath {
 }
 
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/profile': typeof ProfileRoute
   '/settings': typeof SettingsRoute
@@ -111,6 +127,7 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
+  '/': typeof IndexRoute
   '/calendar': typeof CalendarRoute
   '/profile': typeof ProfileRoute
   '/settings': typeof SettingsRoute
@@ -120,11 +137,18 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/calendar' | '/profile' | '/settings' | '/statistics' | '/todo'
+  fullPaths:
+    | '/'
+    | '/calendar'
+    | '/profile'
+    | '/settings'
+    | '/statistics'
+    | '/todo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/calendar' | '/profile' | '/settings' | '/statistics' | '/todo'
+  to: '/' | '/calendar' | '/profile' | '/settings' | '/statistics' | '/todo'
   id:
     | '__root__'
+    | '/'
     | '/calendar'
     | '/profile'
     | '/settings'
@@ -134,6 +158,7 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   CalendarRoute: typeof CalendarRoute
   ProfileRoute: typeof ProfileRoute
   SettingsRoute: typeof SettingsRoute
@@ -142,6 +167,7 @@ export interface RootRouteChildren {
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   CalendarRoute: CalendarRoute,
   ProfileRoute: ProfileRoute,
   SettingsRoute: SettingsRoute,
@@ -159,12 +185,16 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
+        "/",
         "/calendar",
         "/profile",
         "/settings",
         "/statistics",
         "/todo"
       ]
+    },
+    "/": {
+      "filePath": "index.tsx"
     },
     "/calendar": {
       "filePath": "calendar.tsx"
