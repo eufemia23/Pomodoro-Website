@@ -11,8 +11,8 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 - [ ] Keyboard control for all input/button elements
 - [ ] Question mark that starts a tutorial displaying hints all over the screen related to how to use the website and what features the website has and telling you what pomodoro is
 - [ ] Responsive design (smaller screen = the timer fills up the whole screen and the diary is displayed underneath)
-- [ ] Credits, link to my Github, etc.
-- [ ] Home tab that welcomes you to the page
+- [x] Credits, link to my Github, etc.
+- [x] Home tab that welcomes you to the page
 ### Timer
 - [x] Working timer
 - [x] Timer is able to be stopped, paused, and reset

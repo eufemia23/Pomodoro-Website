@@ -8,7 +8,7 @@ const Statistics = () => {
 
   return (
     <>
-      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-37">
+      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-24">
         Statistics
       </h2>
 

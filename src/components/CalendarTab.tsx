@@ -13,7 +13,7 @@ const CalendarTab = () => {
 
   return (
     <>
-      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-36.5">
+      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-24">
         Calendar
       </h2>
       <div className="w-auto px-1 mt-15 pl-16 font-bubbly -ml-139.5 text-light-brown">

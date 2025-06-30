@@ -73,7 +73,7 @@ const Settings = () => {
 
   return (
     <>
-      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-38">
+      <h2 className="text-primary-white text-3xl font-cursive -mt-8.5 ml-25">
         Settings
       </h2>
 
