@@ -117,14 +117,14 @@ const EditProfileModal = ({
                       value={inputValueName}
                       onChange={handleChangeName}
                       type="text"
-                      maxLength={20}
+                      maxLength={15}
                       placeholder="Insert your new name"
                       className="border-3 rounded-md border-primary-pink w-100 py-1 pl-2 outline-0 bg-light-pink pr-12 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white"
                     />
                     <div
-                      className={`absolute right-9 top-21 ${inputNameChar === 20 ? "text-red-600" : "text-light-brown"}`}
+                      className={`absolute right-9 top-21 ${inputNameChar === 15 ? "text-red-600" : "text-light-brown"}`}
                     >
-                      {inputNameChar} / 20
+                      {inputNameChar} / 15
                     </div>
 
                     <label className="block mt-4 mb-1">Biography</label>

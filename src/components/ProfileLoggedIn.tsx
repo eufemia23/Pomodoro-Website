@@ -101,22 +101,25 @@ const removeFriend = (index: number) => {
     <>
       <div className="w-125 -ml-140 px-20 mt-10 text-light-brown">
         <div className="border-3 rounded-md border-primary-pink w-100 bg-light-pink shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white">
-          <div className="flex">
-            <div className="m-2 ml-4 w-23">
+          <div className="flex w-100">
+            <div className="w-20 m-2 ml-5">
               <img src={userAvatar}></img>
             </div>
-            <div className="mt-6">
-              <div className="font-super-cursive font-extrabold text-[30px]">
+            <div className="flex justify-between w-68 ml-3">
+              <div className="">
+              <div className="font-super-cursive font-extrabold text-[30px] mt-3">
                 {userName}
               </div>
-              <div className="ml-1">{userUsername}</div>
+              <div className="">{userUsername}</div>
             </div>
-            <div className="pl-42 pt-2">
+            <div className="mt-1.5">
               <MdEdit
                 className="text-[20px] hover:text-[23px] hover:cursor-pointer duration-100 ease-linear active:text-[23px] active:text-accent-dark-green"
                 onClick={handleEditClick}
               />
             </div>
+            </div>
+            
           </div>
 
           <div className="font-bubbly bg-primary-white mx-5 mb-3 shadow-[0px_2px_3px_rgba(132,88,68,0.5)] inset-shadow-sm inset-shadow-white border-3 rounded-[5px] border-wood-warm py-2 px-3">
