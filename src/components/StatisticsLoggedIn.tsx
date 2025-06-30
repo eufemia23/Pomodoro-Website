@@ -136,7 +136,8 @@ const StatisticsLoggedIn = () => {
                 <Calendar
       onChange={onChange}
       value={value}
-      tileContent={<div className='text-accent-dark-green'>01:20</div>}
+      tileContent={({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 0 ? <div className='text-accent-dark-green -mb-[15px]'>1:30</div> : null}
+      minDetail="year"
      
     />
                 
