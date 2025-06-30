@@ -21,7 +21,7 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 - [x] There's a sound at the beginning and end of 'pomodoro' timer
 - [x] Sessions are able to be removed or added
 - [x] When sessions are done, a pop up appears that lets you exit or add another session
-- [ ] The amount of time is controllable (in settings) and saves in localStorage
+- [x] The amount of time is controllable (in settings) and saves in localStorage
 - [x] When the sessions are equal to 0, and you want to start the timer, a little hint appears that tells you to add sessions first
 ### Todo List
 - [x] Working Add Todo List that lets you input your todo, delete it, and mark it as done
@@ -29,19 +29,21 @@ The second part of the website is made up of todo list, calendar, statistics, pr
 - [x] Both of the Todo Lists are saved into localStorage
 - [ ] The Todo List can span over multiple pages of the diary when too long and you can switch through them by flipping the pages (lower right corner of the diary); the Done Todos List appears at the end, on a new page
 ### Calendar
-- [ ] Working calendar that lets you switch through months and years and is styled to match the website's aesthetic
+- [x] Working calendar that lets you switch through months and years and is styled to match the website's aesthetic
 - [ ] When a day is clicked, it gets visually selected, and the day is displayed on the right side of the diary
 - [ ] Each day has its own schedule, saved to localStorage
 ### Statistics
 - [ ] When not logged in, the statistics fields are blurred and unaccessible, stating you need to be logged in to access them
-- [ ] When logged in, there's multiple fields for different statistics: today, this week, this month, this year, displaying the amount of time you've studied so far
+- [x] When logged in, there's multiple fields for different statistics: today, this week, this month, this year, displaying the amount of time you've studied so far
 ### Profile
-- [x] When not logged in, a component for logging in/signing up is displayed and the rest of the tab is unaccessible; when logged in, a component with your name, username, character and a bio is displayed
-- [ ] Upon clicking on log in/sign in buttons, you get shown a modal component for logging in/signing in
+- [x] When not logged in, a component for logging in/signing up is displayed; when logged in, a component with your name, username, character and a bio is displayed
+- [x] When not logged in, you can switch between log in/sign up
+- [x] Upon signing up, you get shown a create your profile modal
 - [x] There's an edit button that displays a modal for you to change your avatar, bio, and name; there's a few avatars to choose from
 - [ ] There's a create your own character component that allows you to edit the skin color, hair, outfit, etc. of your character; it will then be displayed on the top right corner of the screen to help you with studying
 - [ ] There's an add friends component that displays a modal that allows you to search for usernames, and add them as friends
-- [ ] There's a friends component that shows you the basic information about your friends, and if they're currently studying; you can also remove your friends or go to their profile
+- [x] There's a friends component that shows you the basic information about your friends, and if they're currently studying; you can also remove your friends
+- [ ] You can go to your friends' profiles
 ### Settings
 - [x] Settings related to changing the pomodoro and break time; updates the time and saves it in localStorage
 - [ ] Settings related to the sound that plays at the beginning and end of the pomodoro timer
